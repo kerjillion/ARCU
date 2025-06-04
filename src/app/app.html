@@ -202,8 +202,8 @@
             cx="0"
             cy="0"
             r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
+            gradient-transform="rotate(118.122 171.182 60.81) scale(205.794)"
+            gradient-units="userSpaceOnUse"
           >
             <stop stop-color="#FF41F8" />
             <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
@@ -215,7 +215,7 @@
             x2="982"
             y1="192"
             y2="192"
-            gradientUnits="userSpaceOnUse"
+            gradient-units="userSpaceOnUse"
           >
             <stop stop-color="#F0060B" />
             <stop offset="0" stop-color="#F0070C" />
@@ -322,6 +322,46 @@
       </div>
     </div>
   </div>
+  <button mat-icon-button (click)="toggleTheme()" aria-label="Toggle dark mode">
+    <mat-icon>{{ theme() === 'dark' ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
+
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    style="max-width: 400px; margin: 2rem auto; display: flex; flex-direction: column; gap: 1rem;"
+  >
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error *ngIf="form.get('name')?.hasError('required')">
+        Name is required
+      </mat-error>
+      <mat-error *ngIf="form.get('name')?.hasError('minlength')">
+        Name must be at least 2 characters
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required />
+      <mat-error *ngIf="form.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="form.get('email')?.hasError('email')">
+        Enter a valid email
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
+  </form>
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
