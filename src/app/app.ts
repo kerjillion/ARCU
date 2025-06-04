@@ -3,24 +3,25 @@ import { RouterOutlet } from '@angular/router';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { provideHttpClient, HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MaterialModule, ReactiveFormsModule, CommonModule, HttpClientModule],
+  imports: [RouterOutlet, MaterialModule, ReactiveFormsModule, CommonModule],
+  // providers: [provideHttpClient()], // Moved to main.ts
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
 export class AppComponent {
   protected title = 'ARCU';
 
+  constructor(private http: HttpClient) {}
+
   form = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(2)]),
     email: new FormControl('', [Validators.required, Validators.email]),
   });
-
-  constructor(private http: HttpClient) {}
 
   onSubmit() {
     if (this.form.valid) {
