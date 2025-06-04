@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -17,6 +18,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   exports: [
+    RouterModule,
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,

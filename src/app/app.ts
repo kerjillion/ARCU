@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
@@ -46,6 +46,14 @@ export class AppComponent {
 
   ngOnInit() {
     document.body.classList.add('light-theme');
+  }
+
+  // Example: signal-based state for a counter
+  counter = signal(0);
+  doubleCounter = computed(() => this.counter() * 2);
+
+  increment() {
+    this.counter.update(c => c + 1);
   }
 }
 
