@@ -5,14 +5,7 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-frame',
   standalone: true,
   imports: [RouterOutlet],
-  template: `
-    <header class="app-header">
-      <h1>ARCU</h1>
-    </header>
-    <main class="app-main">
-      <router-outlet></router-outlet>
-    </main>
-  `,
+  templateUrl: './frame.component.html',
   styleUrls: ['./app.scss']
 })
 export class FrameComponent {}

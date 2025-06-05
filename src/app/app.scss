@@ -2,39 +2,32 @@
   background: #fff;
   color: #3f51b5;
   padding: 0 1rem;
-  text-align: center;
   font-size: 1.5rem;
   letter-spacing: 0.05em;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   height: 4rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; // Move content to the left
   border-bottom: 1px solid #e0e0e0;
+  text-align: left; // Remove center text alignment
 }
 
 .app-main {
   padding: 2rem;
   min-height: 60vh;
   background: #fafafa;
-}.app-header {
-  background: #fff;
-  color: #3f51b5;
-  padding: 0 1rem;
-  text-align: center;
-  font-size: 1.5rem;
-  letter-spacing: 0.05em;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid #e0e0e0;
 }
 
 .app-header h1 {
   color: #000;
   font-weight: normal;
   margin: 0;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
+}
+
+.app-logo {
+  height: 2.5rem;
+  margin-right: 1rem;
+  display: block;
 }
