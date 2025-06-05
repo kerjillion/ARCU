@@ -175,9 +175,23 @@
       margin-block: 1.5rem;
     }
   }
+
+  .app-header {
+    background-color: var(--gray-900);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .app-main {
+    padding: 1rem;
+  }
 </style>
 
-<main class="main">
+<header class="app-header">
+  <h1>ARCU Application</h1>
+</header>
+<main class="app-main">
   <nav style="display: flex; gap: 1rem; justify-content: center; margin: 2rem 0;">
     <a
       routerLink="/"
