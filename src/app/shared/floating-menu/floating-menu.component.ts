@@ -12,7 +12,13 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./floating-menu.component.scss']
 })
 export class FloatingMenuComponent {
-  @Input() items: { icon: string; label?: string; color?: string; action?: () => void }[] = [];
+  @Input() items: { 
+    icon: string; 
+    label?: string; 
+    color?: string; 
+    action?: () => void; 
+    disabled?: boolean; // <-- Add this
+  }[] = [];
   open = signal(false);
   spinning = signal(false);
 

@@ -11,16 +11,26 @@
     </span>
   </button>
   <div class="menu-items" [class.menu-open]="open()" [class.menu-closed]="!open()">
-    @for (item of items; track item) {
-      <button
-        mat-mini-fab
-        [color]="item.color || 'primary'"
-        class="menu-item-circle"
-        (click)="item.action?.()"
-        [attr.aria-label]="item.label"
-      >
-        <mat-icon>{{ item.icon }}</mat-icon>
-      </button>
-    }
+@for (item of items; track item) {
+  <button
+    mat-mini-fab
+    [color]="item.color || 'primary'"
+    class="menu-item-circle label-left"
+    (click)="item.action?.()"
+    [attr.aria-label]="item.label"
+    [disabled]="item.disabled"
+  >
+    <mat-icon>{{ item.icon }}</mat-icon>
+    <span class="menu-item-label">{{ item.label }}</span>
+  </button>
+}
   </div>
 </div>
+
+<style>
+.menu-item-circle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+</style>
