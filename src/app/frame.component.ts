@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter, map, mergeMap } from 'rxjs/operators';
 import { FloatingMenuComponent } from './shared/floating-menu/floating-menu.component';
 
 @Component({
@@ -10,6 +11,25 @@ import { FloatingMenuComponent } from './shared/floating-menu/floating-menu.comp
   styleUrls: ['./app.scss']
 })
 export class FrameComponent {
+  pageTitle = '';
+
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(() => {
+        let child = this.route.firstChild;
+        while (child?.firstChild) {
+          child = child.firstChild;
+        }
+        return child;
+      }),
+      mergeMap(route => route?.data ?? []),
+      map(data => data['title'] || '')
+    ).subscribe(title => {
+      this.pageTitle = title;
+    });
+  }
+
   onHome = () => {
     console.log('Home clicked');
   };

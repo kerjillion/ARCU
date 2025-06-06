@@ -1,15 +1,13 @@
 import { Routes } from '@angular/router';
+import { FrameComponent } from './frame.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./frame.component').then(m => m.FrameComponent),
+    component: FrameComponent,
     children: [
-      // Example child route for home/landing page
-      // {
-      //   path: '',
-      //   loadComponent: () => import('./home/home.component').then(m => m.HomeComponent),
-      // },
+      { path: '', component: DashboardComponent, pathMatch: 'full', data: { title: 'Dashboard' } },
       {
         path: 'dashboard',
         loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent),
@@ -19,7 +17,7 @@ export const routes: Routes = [
         loadComponent: () => import('./profile/profile.component').then(m => m.ProfileComponent),
       },
       // Add more child routes here
+      { path: '**', redirectTo: '' }
     ]
-  },
-  { path: '**', redirectTo: '' }
+  }
 ];
