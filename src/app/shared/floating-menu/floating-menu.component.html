@@ -13,8 +13,13 @@
     >
       <span [class.enlarge]="spinning()" [class.shrink]="!spinning()">
         <mat-icon
-          [ngClass]="{ 'spin-up': spinning(), 'spin-down': !spinning() }"
-        >camera</mat-icon>
+          [ngClass]="{
+            'spin-up':  (spinning() && !horizontal) || (!spinning() && horizontal),
+            'spin-down': (!spinning() && !horizontal) || (spinning() && horizontal)
+          }"
+        >
+          camera
+        </mat-icon>
       </span>
     </button>
   }
