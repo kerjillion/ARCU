@@ -1,7 +1,7 @@
 .floating-menu-container {
   position: fixed;
   top: 0.5rem;
-  left: 9rem;
+  right: 1rem;
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -157,7 +157,6 @@
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  left: 110%;
   top: 50%;
   transform: translateY(-50%);
   background: white;
@@ -177,10 +176,15 @@
 }
 
 /* If the menu is close to the right edge, add a class to flip the label */
+.menu-item-circle.label-right .menu-item-label {
+  left: 110%;
+  right: auto;
+  text-align: left;
+}
+
 .menu-item-circle.label-left .menu-item-label {
   left: auto;
-  right: calc(100% + 2.5em); // Offset further to the left of the button
-  margin-right: 0;
+  right: calc(100% + 3.0em); // Increase this value for more space
   text-align: right;
   top: 50%;
   transform: translateY(-50%);

@@ -1,29 +1,39 @@
-<div class="floating-menu-container">
-  <button
-    class="menu-control-circle menu-toggle"
-    aria-label="Menu control button"
-    (click)="toggleMenu()"
-  >
-    <span [class.enlarge]="spinning()" [class.shrink]="!spinning()">
-      <mat-icon
-        [ngClass]="{ 'spin-up': spinning(), 'spin-down': !spinning() }"
-      >camera</mat-icon>
-    </span>
-  </button>
+<div
+  class="floating-menu-container"
+  [style.left]="left"
+  [style.right]="right"
+  [style.top]="top"
+  [style.bottom]="bottom"
+>
+  @if (!hideToggle) {
+    <button
+      class="menu-control-circle menu-toggle"
+      aria-label="Menu control button"
+      (click)="toggleMenu()"
+    >
+      <span [class.enlarge]="spinning()" [class.shrink]="!spinning()">
+        <mat-icon
+          [ngClass]="{ 'spin-up': spinning(), 'spin-down': !spinning() }"
+        >camera</mat-icon>
+      </span>
+    </button>
+  }
   <div class="menu-items" [class.menu-open]="open()" [class.menu-closed]="!open()">
-@for (item of items; track item) {
-  <button
-    mat-mini-fab
-    [color]="item.color || 'primary'"
-    class="menu-item-circle label-left"
-    (click)="item.action?.()"
-    [attr.aria-label]="item.label"
-    [disabled]="item.disabled"
-  >
-    <mat-icon>{{ item.icon }}</mat-icon>
-    <span class="menu-item-label">{{ item.label }}</span>
-  </button>
-}
+    @for (item of items; track item) {
+      <button
+        mat-mini-fab
+        [color]="item.color || 'primary'"
+        class="menu-item-circle"
+        [class.label-left]="menuPosition === 'right'"
+        [class.label-right]="menuPosition === 'left'"
+        (click)="onMenuItemClick(item)"
+        [attr.aria-label]="item.label"
+        [disabled]="item.disabled"
+      >
+        <mat-icon>{{ item.icon }}</mat-icon>
+        <span class="menu-item-label">{{ item.label }}</span>
+      </button>
+    }
   </div>
 </div>
 
