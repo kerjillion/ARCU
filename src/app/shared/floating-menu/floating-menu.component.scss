@@ -9,23 +9,80 @@
 }
 
 .menu-toggle {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
 }
 
 .menu-items {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  overflow: hidden;
+  transition:
+    max-height 0.3s cubic-bezier(0.4,0,0.2,1),
+    opacity 0.2s cubic-bezier(0.4,0,0.2,1),
+    transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+}
+
+.menu-items.menu-open {
+  max-height: 500px; // adjust as needed for your menu size
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.menu-items.menu-closed {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
 }
 
 .menu-item {
   border-radius: 50%;
 }
 
-.custom-circle {
+.menu-control-circle {
   // Relative size: 10% of the viewport width
-  width: 3em;
-  height: 3em;
+  width: 4em;
+  height: 4em;
+  aspect-ratio: 1; // keeps it perfectly circular
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+
+  // Optional color override (can still be set via Angular Material color system)
+  background-color: var(--mat-mdc-fab-background,transparent);
+  color: var(--mat-mdc-fab-foreground, #3f51b5);
+
+  // Material ripple is enabled by default
+  mat-icon {
+    font-size: 2em; // scales with container
+  }
+
+  // Transitions for hover/active
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    color: var(--mat-mdc-fab-foreground, lightblue);    
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.menu-item-circle{
+    // Relative size: 10% of the viewport width
+  width: 4em;
+  height: 4em;
   aspect-ratio: 1; // keeps it perfectly circular
   border-radius: 50%;
   display: inline-flex;
@@ -56,14 +113,39 @@
 
 // Optional: Limit size on very large screens
 @media (min-width: 1200px) {
-  .custom-circle {
+  .menu-control-circle {
     max-width: 80px;
   }
 }
 
 // Optional: Minimum size for small screens
 @media (max-width: 400px) {
-  .custom-circle {
+  .menu-control-circle {
     min-width: 48px;
   }
+}
+
+.spin-up {
+  animation: spin 0.6s linear;
+}
+.spin-down {
+  animation: spin-reverse 0.6s linear;
+}
+.enlarge {
+  display: inline-block;
+  transform: scale(1.5);
+  transition: transform 0.3s;
+}
+.shrink {
+  display: inline-block;
+  transform: scale(1);
+  transition: transform 0.3s;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+@keyframes spin-reverse {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(-360deg);}
 }
