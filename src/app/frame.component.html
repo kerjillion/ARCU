@@ -1,6 +1,10 @@
 <header class="app-header">
   <img src="assets/images/rock.png" alt="Rock" class="app-logo" />
   <h1>ARCU</h1>
+  <app-floating-menu
+    [items]="menuItems"
+    class="header-menu">
+  </app-floating-menu>
 </header>
 <main class="app-main">
   <router-outlet></router-outlet>

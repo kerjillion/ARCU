@@ -1,6 +1,6 @@
 .floating-menu-container {
   position: fixed;
-  bottom: 2rem;
+  top: 0.5rem;
   right: 2rem;
   z-index: 1000;
   display: flex;
@@ -20,4 +20,50 @@
 
 .menu-item {
   border-radius: 50%;
+}
+
+.custom-circle {
+  // Relative size: 10% of the viewport width
+  width: 3em;
+  height: 3em;
+  aspect-ratio: 1; // keeps it perfectly circular
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  // Optional color override (can still be set via Angular Material color system)
+  background-color: var(--mat-mdc-fab-background, #3f51b5);
+  color: var(--mat-mdc-fab-foreground, white);
+
+  // Material ripple is enabled by default
+  mat-icon {
+    font-size: 2em; // scales with container
+  }
+
+  // Transitions for hover/active
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: var(--mat-mdc-fab-hover-state-layer-color, #303f9f);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// Optional: Limit size on very large screens
+@media (min-width: 1200px) {
+  .custom-circle {
+    max-width: 80px;
+  }
+}
+
+// Optional: Minimum size for small screens
+@media (max-width: 400px) {
+  .custom-circle {
+    min-width: 48px;
+  }
 }

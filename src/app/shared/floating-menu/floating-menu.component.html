@@ -1,0 +1,20 @@
+<div class="floating-menu-container">
+    <button class="custom-circle menu-toggle" aria-label="Custom button" (click)="toggleMenu()">
+        <mat-icon>edit</mat-icon>
+    </button>
+    @if (open()) {
+    <div class="menu-items">
+        @for (item of items; track item) {
+        <button
+            mat-mini-fab
+            [color]="item.color || 'primary'"
+            class="custom-circle"
+            (click)="item.action?.()"
+            [attr.aria-label]="item.label"
+        >
+            <mat-icon>{{ item.icon }}</mat-icon>
+        </button>
+        }
+    </div>
+    }
+</div>
