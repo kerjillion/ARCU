@@ -5,16 +5,33 @@
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
+  gap: 0.2rem; // small gap between buttons
+  justify-content: flex-end; // move all children to the right
   min-height: 3rem;
   font-weight: 500;
-  gap: 0.5rem;
-  justify-content: space-between;
   position: relative; /* Key to containing absolutely positioned children */
   padding: 0.5rem 1rem;
 }
 
+.status-bar,
+.status-bar * {
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  font-weight: 400; // normal weight
+}
+
+.status-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  border: 2px solid #bfc8e0;      // lighter slate blue border
+  border-radius: 1.5rem;           // curved corners
+  padding: 0.25rem 0.75rem;
+  background: transparent;         // transparent background
+}
+
 .assessments-content {
   padding: 2rem;
+  position: relative;
 }
 
 :host ::ng-deep .mat-tab-group {
@@ -36,4 +53,70 @@
 
 :host ::ng-deep .mat-ink-bar {
   display: none;
+}
+
+.slide-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50vh;
+  width: 100vw;         // doubled from 50vw to 100vw
+  max-width: 1200px;    // doubled from 600px to 1200px
+  min-width: 640px;     // doubled from 320px to 640px
+  background: #fff;
+  border: 1px solid slategray;
+  box-shadow: -2px 0 16px rgba(0, 0, 0, 0.15);
+  z-index: 3000;
+  transform: translateX(110%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.slide-panel.open {
+  transform: translateX(0);
+}
+
+.slide-panel-content {
+  padding: 2rem 1.5rem;
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+.icon-round-btn.reports-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #6a7ba2; // slate blue
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem; // no extra space
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: background 0.2s;
+  padding: 0;
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.10));
+  }
+
+  &:hover {
+    background: #506090;
+  }
+}
+
+app-floating-menu {
+  margin-left: 0.15rem; // small space between reports and logs
+}
+
+.assessment-number,
+.assessment-title {
+  font-size: 1.3rem;
+  font-weight: 600;
 }

@@ -18,6 +18,9 @@ interface AssessmentTab {
   styleUrls: ['./assessment.component.scss']
 })
 export class AssessmentComponent {
+openAttachementsPanel() {
+throw new Error('Method not implemented.');
+}
   readonly assessmentId = signal<string | null>(null);
 
   // Signal for tab definitions
@@ -59,4 +62,18 @@ export class AssessmentComponent {
     // TODO: Implement log menu action handling
     console.log('Log menu selected:', type);
   }
+
+  isReportsPanelOpen = false; // Add this property to control the panel
+
+  openReportsPanel() {
+    this.isReportsPanelOpen = true;
+  }
+
+  // Optionally, add a method to close the panel
+  closeReportsPanel() {
+    this.isReportsPanelOpen = false;
+  }
+
+  assessmentTitle = 'Assessment Title Here'; // Replace with actual title
+  assessmentStatus = 'In Progress'; // Replace with actual status
 }
