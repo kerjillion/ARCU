@@ -43,10 +43,14 @@
   </span>
 </div>
 
-
 <mat-tab-group>
   @for (tab of visibleTabs(); track tab.title) {
-    <mat-tab [label]="tab.title" [disabled]="tab.disabled"></mat-tab>
+    <mat-tab [label]="tab.title" [disabled]="tab.disabled">
+      @if (tab.title === 'Overview') {
+        <app-assessment-overview />
+      }
+      <!-- Add more @if blocks for other tab content if needed -->
+    </mat-tab>
   }
 </mat-tab-group>
 

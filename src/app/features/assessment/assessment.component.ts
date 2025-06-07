@@ -2,6 +2,7 @@ import { Component, signal, computed } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FloatingMenuComponent } from '../../shared/floating-menu/floating-menu.component';
+import { AssessmentOverviewComponent } from './overview/overview.component';
 
 interface AssessmentTab {
   title: string;
@@ -13,7 +14,7 @@ interface AssessmentTab {
 @Component({
   selector: 'app-assessments',
   standalone: true,
-  imports: [MatTabsModule, FloatingMenuComponent],
+  imports: [MatTabsModule, FloatingMenuComponent, AssessmentOverviewComponent],
   templateUrl: './assessment.component.html',
   styleUrls: ['./assessment.component.scss']
 })
