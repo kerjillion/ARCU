@@ -1,30 +1,28 @@
 import { Routes } from '@angular/router';
 import { FrameComponent } from './frame.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AssessmentComponent } from './features/assessment/assessment.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: FrameComponent,
-    component: FrameComponent,
     children: [
-      { path: '', component: DashboardComponent, pathMatch: 'full', data: { title: 'Dashboard' } },
       { path: '', component: DashboardComponent, pathMatch: 'full', data: { title: 'Dashboard' } },
       {
         path: 'dashboard',
-        loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent),
+        loadComponent: () => import('./features/dashboard/dashboard.component').then(m => m.DashboardComponent),
       },
       {
         path: 'profile',
-        loadComponent: () => import('./profile/profile.component').then(m => m.ProfileComponent),
+        loadComponent: () => import('./features/profile/profile.component').then(m => m.ProfileComponent),
       },
-      { path: 'assessments', component: AssessmentComponent, data: { title: 'Assessments' } },
-      { path: 'assessments/:id', component: AssessmentComponent, data: { title: 'Assessments' } },
+      {
+        path: 'assessment/:id',
+        loadComponent: () => import('./features/assessment/assessment.component').then(m => m.AssessmentComponent),
+        data: { title: 'Assessment' }
+      },
       // Add more child routes here
       { path: '**', redirectTo: '' }
-      { path: '**', redirectTo: '' }
     ]
-  }
   }
 ];

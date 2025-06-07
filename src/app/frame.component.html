@@ -2,7 +2,7 @@
   <img src="assets/images/rock.png" alt="Rock" class="app-logo" />
   <h1>ARCU</h1>
   <app-floating-menu
-    [items]="menuItems"
+    [items]="menuItems()"
     [menuPosition]="'right'"
     [left]="'9rem'"
     [top]="'0.4rem'"
@@ -11,7 +11,7 @@
     [horizontal]="true"
     class="header-menu">
   </app-floating-menu>
-  <span class="page-title">{{ pageTitle }}</span>
+  <span class="page-title">{{ pageTitle() }}</span>
   <app-searchbar (search)="onSearch($event)"></app-searchbar>
 </header>
 

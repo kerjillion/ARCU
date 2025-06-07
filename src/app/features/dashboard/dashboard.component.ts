@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   template: `
     <div class="dashboard-container">
-      <h2>Welcome to ARCU Dashboard</h2>
+      <h2>{{ dashboardTitle() }}</h2>
       <div class="dashboard-widgets">
         <div class="dashboard-widget">
           <h3>Quick Links</h3>
@@ -30,4 +30,6 @@ import { Component } from '@angular/core';
   `,
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {}
+export class DashboardComponent {
+  dashboardTitle = signal('Dashboard');
+}

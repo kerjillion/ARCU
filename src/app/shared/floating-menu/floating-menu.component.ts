@@ -1,5 +1,5 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { Component, Input, ElementRef, AfterViewInit, HostListener, signal, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Component, Input, ElementRef, AfterViewInit, ChangeDetectionStrategy, OnDestroy, signal, effect } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -12,20 +12,16 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./floating-menu.component.scss']
 })
 export class FloatingMenuComponent implements AfterViewInit, OnDestroy {
-  @Input() items: {
-    icon: string;
-    label?: string;
-    color?: string;
-    action?: () => void;
-    disabled?: boolean;
-    backgroundColor?: string;
-    foregroundColor?: string;
-  }[] = [];
+  // Make items a signal for reactivity
+  private _items = signal<any[]>([]);
+  @Input() set items(value: any[]) { this._items.set(value ?? []); }
+  get items() { return this._items(); }
+
   @Input() menuPosition: 'left' | 'right' | null = null;
-  @Input() left: string = 'auto';      // <-- Default to 'auto'
-  @Input() right: string = 'auto';     // <-- Default to 'auto'
-  @Input() top: string = 'auto';       // <-- Default to 'auto'
-  @Input() bottom: string = 'auto';    // <-- Default to 'auto'
+  @Input() left: string = 'auto';
+  @Input() right: string = 'auto';
+  @Input() top: string = 'auto';
+  @Input() bottom: string = 'auto';
   @Input() defaultOpen: boolean = false;
   @Input() hideToggle: boolean = false;
   @Input() horizontal: boolean = false;
@@ -43,7 +39,6 @@ export class FloatingMenuComponent implements AfterViewInit, OnDestroy {
       this.open.set(false);
     }
   };
-blue: any;
 
   constructor(private el: ElementRef) {}
 
