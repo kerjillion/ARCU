@@ -49,7 +49,33 @@
       @if (tab.title === 'Overview') {
         <app-assessment-overview />
       }
-      <!-- Add more @if blocks for other tab content if needed -->
+      @if (tab.title === 'Deployment') {
+        <app-assessment-deployment />
+      }
+      @if (tab.title === 'Relationships') {
+        <app-assessment-relationships />
+      }
+      @if (tab.title === 'Scope') {
+        <app-assessment-scope />
+      }
+      @if (tab.title === 'Policy') {
+        <app-assessment-policy />
+      }
+      @if (tab.title === 'Regulation') {
+        <app-assessment-regulation />
+      }
+      @if (tab.title === 'Risks') {
+        <app-assessment-risks />
+      }
+      @if (tab.title === 'Risk List') {
+        <app-assessment-risk-list />
+      }
+      @if (tab.title === 'Notes') {
+        <app-assessment-notes />
+      }
+      @if (tab.title === 'POV') {
+        <app-assessment-pov />
+      }
     </mat-tab>
   }
 </mat-tab-group>

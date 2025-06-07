@@ -3,6 +3,15 @@ import { ActivatedRoute } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FloatingMenuComponent } from '../../shared/floating-menu/floating-menu.component';
 import { AssessmentOverviewComponent } from './overview/overview.component';
+import { AssessmentDeploymentComponent } from './deployment/deployment.component';
+import { AssessmentRelationshipsComponent } from './relationships/relationships.component';
+import { AssessmentScopeComponent } from './scope/scope.component';
+import { AssessmentPolicyComponent } from './policy/policy.component';
+import { AssessmentRegulationComponent } from './regulation/regulation.component';
+import { AssessmentRisksComponent } from './risks/risks.component';
+import { AssessmentRiskListComponent } from './risk-list/risk-list.component';
+import { AssessmentNotesComponent } from './notes/notes.component';
+import { AssessmentPovComponent } from './pov/pov.component';
 
 interface AssessmentTab {
   title: string;
@@ -14,7 +23,20 @@ interface AssessmentTab {
 @Component({
   selector: 'app-assessments',
   standalone: true,
-  imports: [MatTabsModule, FloatingMenuComponent, AssessmentOverviewComponent],
+  imports: [
+    MatTabsModule,
+    FloatingMenuComponent,
+    AssessmentOverviewComponent,
+    AssessmentDeploymentComponent,
+    AssessmentRelationshipsComponent,
+    AssessmentScopeComponent,
+    AssessmentPolicyComponent,
+    AssessmentRegulationComponent,
+    AssessmentRisksComponent,
+    AssessmentRiskListComponent,
+    AssessmentNotesComponent,
+    AssessmentPovComponent
+  ],
   templateUrl: './assessment.component.html',
   styleUrls: ['./assessment.component.scss']
 })
