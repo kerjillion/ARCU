@@ -25,6 +25,7 @@ export class FloatingMenuComponent implements AfterViewInit, OnDestroy {
   @Input() defaultOpen: boolean = false;
   @Input() hideToggle: boolean = false;
   @Input() horizontal: boolean = false;
+  @Input() controlImageSrc: string | null = null;
 
   open = signal(this.defaultOpen);
   spinning = signal(false);

@@ -1,7 +1,48 @@
-<div class="work-bar">
+<div class="status-bar">
   <span>Work Bar: Assessments Actions</span>
-  <!-- Add buttons or controls here as needed -->
+  
+  <app-floating-menu
+    [controlImageSrc]="'assets/images/paperclip_sketch.png'"
+    [items]="[]"
+    [hideToggle]="false"
+    [horizontal]="false"
+    [right]="'auto'"
+    [top]="'auto'"
+    [left]="'auto'"
+    [bottom]="'auto'"
+    style="margin-left: auto;">
+  </app-floating-menu>
+  
+  <app-floating-menu
+    [controlImageSrc]="'assets/images/reports.png'"
+    [items]="[]"
+    [hideToggle]="false"
+    [horizontal]="false"
+    [right]="'auto'"
+    [top]="'auto'"
+    [left]="'auto'"
+    [bottom]="'auto'">
+  </app-floating-menu>
+  
+  <app-floating-menu
+    [controlImageSrc]="'assets/images/log_sketch.png'"
+    [items]="logMenuItems"
+    [hideToggle]="false"
+    [horizontal]="false"
+    [right]="'auto'"
+    [top]="'auto'"
+    [left]="'auto'"
+    [bottom]="'auto'">
+  </app-floating-menu>
 </div>
+
+
+<mat-tab-group>
+  @for (tab of visibleTabs(); track tab.title) {
+    <mat-tab [label]="tab.title" [disabled]="tab.disabled"></mat-tab>
+  }
+</mat-tab-group>
+
 <div class="assessments-content">
   <h2>Assessments</h2>
   <p>This is the Assessments page. Add your content here.</p>

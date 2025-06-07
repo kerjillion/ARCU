@@ -1,4 +1,4 @@
-.work-bar {
+.status-bar {
   margin: 3px;
   padding: 1rem;
   background: #e3e9f6;
@@ -7,8 +7,33 @@
   align-items: center;
   min-height: 3rem;
   font-weight: 500;
+  gap: 0.5rem;
+  justify-content: space-between;
+  position: relative; /* Key to containing absolutely positioned children */
+  padding: 0.5rem 1rem;
 }
 
 .assessments-content {
   padding: 2rem;
+}
+
+:host ::ng-deep .mat-tab-group {
+  background: purple;
+  box-shadow: none;
+}
+
+:host ::ng-deep .mat-tab-label {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: border 0.2s ease;
+}
+
+:host ::ng-deep .mat-tab-label.mat-tab-label-active {
+  border-bottom: 2px solid var(--mat-primary, #3f51b5);
+}
+
+:host ::ng-deep .mat-ink-bar {
+  display: none;
 }
