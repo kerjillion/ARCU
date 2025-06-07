@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs/operators';
+import { RouterOutlet, ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter, map, mergeMap } from 'rxjs/operators';
 import { FloatingMenuComponent } from './shared/floating-menu/floating-menu.component';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 

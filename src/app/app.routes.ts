@@ -7,7 +7,9 @@ export const routes: Routes = [
   {
     path: '',
     component: FrameComponent,
+    component: FrameComponent,
     children: [
+      { path: '', component: DashboardComponent, pathMatch: 'full', data: { title: 'Dashboard' } },
       { path: '', component: DashboardComponent, pathMatch: 'full', data: { title: 'Dashboard' } },
       {
         path: 'dashboard',
@@ -21,6 +23,8 @@ export const routes: Routes = [
       { path: 'assessments/:id', component: AssessmentComponent, data: { title: 'Assessments' } },
       // Add more child routes here
       { path: '**', redirectTo: '' }
+      { path: '**', redirectTo: '' }
     ]
+  }
   }
 ];
