@@ -38,8 +38,12 @@
         (click)="onMenuItemClick(item)"
         [attr.aria-label]="item.label"
         [disabled]="item.disabled"
+        [ngStyle]="{
+          'background-color': item.backgroundColor,
+          'color': item.foregroundColor
+        }"
       >
-        <mat-icon>{{ item.icon }}</mat-icon>
+        <mat-icon [ngStyle]="{ color: item.foregroundColor }">{{ item.icon }}</mat-icon>
         <span class="menu-item-label" [class.label-below]="horizontal">{{ item.label }}</span>
       </button>
     }

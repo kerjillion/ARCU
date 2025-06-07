@@ -93,8 +93,8 @@
   justify-content: center;
 
   // Optional color override (can still be set via Angular Material color system)
-  background-color: var(--mat-mdc-fab-background, #3f51b5);
-  color: var(--mat-mdc-fab-foreground, white);
+  background-color: blue; // Default background
+  color: #fff;            // Default foreground (icon/text)
 
   // Material ripple is enabled by default
   mat-icon {
@@ -247,3 +247,9 @@
   opacity: 0;
   pointer-events: none;
 }
+
+/* Optional: Only override if not disabled by [ngStyle] in template */
+.menu-item-circle[style*="background-color"] {
+  /* This selector ensures inline styles from Angular take precedence */
+}
+

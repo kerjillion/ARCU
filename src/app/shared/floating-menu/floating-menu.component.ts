@@ -6,18 +6,20 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-floating-menu',
   standalone: true,
-  imports: [NgClass, MatIconModule, MatButtonModule],
+  imports: [NgClass, MatIconModule, MatButtonModule, CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './floating-menu.component.html',
   styleUrls: ['./floating-menu.component.scss']
 })
 export class FloatingMenuComponent implements AfterViewInit, OnDestroy {
-  @Input() items: { 
-    icon: string; 
-    label?: string; 
-    color?: string; 
-    action?: () => void; 
+  @Input() items: {
+    icon: string;
+    label?: string;
+    color?: string;
+    action?: () => void;
     disabled?: boolean;
+    backgroundColor?: string;
+    foregroundColor?: string;
   }[] = [];
   @Input() menuPosition: 'left' | 'right' | null = null;
   @Input() left: string = 'auto';      // <-- Default to 'auto'
@@ -41,6 +43,7 @@ export class FloatingMenuComponent implements AfterViewInit, OnDestroy {
       this.open.set(false);
     }
   };
+blue: any;
 
   constructor(private el: ElementRef) {}
 

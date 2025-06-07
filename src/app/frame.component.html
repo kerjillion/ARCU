@@ -11,7 +11,10 @@
     [horizontal]="true"
     class="header-menu">
   </app-floating-menu>
+  <span class="page-title">{{ pageTitle }}</span>
+  <app-searchbar (search)="onSearch($event)"></app-searchbar>
 </header>
+
 <main class="app-main">
   <router-outlet></router-outlet>
 </main>
