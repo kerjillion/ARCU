@@ -3,6 +3,134 @@
   <p>“You're gonna be Saul Bloom. You're gonna be in a wheelchair. You're gonna have metal legs. Octavio. Metal legs.”</p>
 </section>
 <div class="assessment-overview">
-  <h2>Overview</h2>
-  <p>Overview details go here.</p>
+  <form class="deployment-form" [formGroup]="form">
+    <div class="deployment-columns">
+      <!-- Column 1 -->
+      <div class="deployment-col col1">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Objective</mat-label>
+          <textarea matInput formControlName="objective" rows="3"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Impact Summary</mat-label>
+          <textarea matInput formControlName="impactSummary" rows="3"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Target Population</mat-label>
+          <textarea matInput formControlName="targetPopulation" rows="3"></textarea>
+        </mat-form-field>
+      </div>
+      <!-- Column 2 -->
+      <div class="deployment-col col2">
+        <mat-form-field appearance="outline" class="date-field">
+          <mat-label>Date 1</mat-label>
+          <input matInput formControlName="date1" [matDatepicker]="picker1" />
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="date-field">
+          <mat-label>Date 2</mat-label>
+          <input matInput formControlName="date2" [matDatepicker]="picker2" />
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="date-field">
+          <mat-label>Date 3</mat-label>
+          <input matInput formControlName="date3" [matDatepicker]="picker3" />
+          <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+          <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="date-field">
+          <mat-label>Date 4</mat-label>
+          <input matInput formControlName="date4" [matDatepicker]="picker4" />
+          <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+          <mat-datepicker #picker4></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="date-field">
+          <mat-label>Date 5</mat-label>
+          <input matInput formControlName="date5" [matDatepicker]="picker5" />
+          <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+          <mat-datepicker #picker5></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="date-field">
+          <mat-label>Date 6</mat-label>
+          <input matInput formControlName="date6" [matDatepicker]="picker6" />
+          <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
+          <mat-datepicker #picker6></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <!-- Column 3 -->
+      <div class="deployment-col col3">
+        <div class="ancillary-grid">
+          
+          <div class="ancillary-row">
+            <mat-form-field appearance="outline" class="ancillary-input">
+              <mat-label>Input 1</mat-label>
+              <input matInput formControlName="ancillaryInput1" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="ancillary-select">
+              <mat-label>Dropdown 1</mat-label>
+              <mat-select formControlName="ancillarySelect1">
+                <mat-option value="option1">Option 1</mat-option>
+                <mat-option value="option2">Option 2</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="ancillary-row">
+            <mat-form-field appearance="outline" class="ancillary-input">
+              <mat-label>Input 2</mat-label>
+              <input matInput formControlName="ancillaryInput2" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="ancillary-select">
+              <mat-label>Dropdown 2</mat-label>
+              <mat-select formControlName="ancillarySelect2">
+                <mat-option value="option1">Option 1</mat-option>
+                <mat-option value="option2">Option 2</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="ancillary-row">
+            <mat-form-field appearance="outline" class="ancillary-input">
+              <mat-label>Input 3</mat-label>
+              <input matInput formControlName="ancillaryInput3" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="ancillary-input">
+              <mat-label>Input 4</mat-label>
+              <input matInput formControlName="ancillaryInput4" />
+            </mat-form-field>
+          </div>
+
+          <div class="ancillary-row ancillary-row-span">
+            <mat-form-field appearance="outline" class="ancillary-select-span">
+              <mat-label>Spanning Dropdown 1</mat-label>
+              <mat-select formControlName="ancillarySelectSpan">
+                <mat-option value="optionA">Option A</mat-option>
+                <mat-option value="optionB">Option B</mat-option>
+                <mat-option value="optionC">Option C</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="ancillary-row ancillary-row-span">
+            <mat-form-field appearance="outline" class="ancillary-select-span">
+              <mat-label>Spanning Dropdown 2</mat-label>
+              <mat-select formControlName="ancillarySelectSpan">
+                <mat-option value="optionA">Option A</mat-option>
+                <mat-option value="optionB">Option B</mat-option>
+                <mat-option value="optionC">Option C</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </form>
 </div>

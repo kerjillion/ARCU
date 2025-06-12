@@ -1,3 +1,63 @@
 .assessment-overview {
   padding: 0.0rem;
 }
+
+.deployment-columns {
+  display: flex;
+  gap: 2rem;
+}
+
+.deployment-col {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.col1 {
+  min-width: 220px;
+}
+
+.col2 {
+  min-width: 120px;
+  max-width: 180px;
+}
+
+.date-field {
+  max-width: 208px; // 30% wider than 160px
+  min-width: 156px; // 30% wider than 120px
+}
+
+.ancillary-info {
+  background: #f5f7fa;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.ancillary-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ancillary-row {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+}
+
+.ancillary-input,
+.ancillary-select {
+  flex: 1;
+}
+
+.ancillary-row-span {
+  display: flex;
+  margin-top: 0rem;
+}
+
+.ancillary-select-span {
+  flex: 2;
+}

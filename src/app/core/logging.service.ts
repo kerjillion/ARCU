@@ -34,3 +34,29 @@ export class LoggingService {
     }
   }
 }
+
+/*
+LoggingService Documentation
+--------------------------
+
+LoggingService is a centralized logging utility for Angular applications.
+
+Features:
+- Supports multiple log levels: log, info, warn, error, and debug.
+- Uses Angular's isDevMode() to restrict log, info, warn, and debug messages to development mode only.
+- Always logs errors (error level) in both development and production environments.
+- Can be extended to send error logs to a remote server for monitoring and alerting.
+
+Usage:
+1. Inject LoggingService into your component or service:
+   constructor(private logger: LoggingService) {}
+
+2. Log messages at various levels:
+   this.logger.log('A log message');
+   this.logger.info('Some info');
+   this.logger.warn('A warning');
+   this.logger.error('An error occurred', errorObj);
+   this.logger.debug('Debug details', details);
+
+This service helps standardize and control logging output across your Angular application.
+*/
