@@ -124,10 +124,10 @@ export class AssessmentOverviewComponent implements OnInit, OnDestroy {
       ancillaryInput1: data.ancillaryInfo.input1,
       ancillarySelect1: data.ancillaryInfo.select1,
       ancillaryInput2: data.ancillaryInfo.input2,
-      ancillarySelect2: data.ancillaryInfo.select2,
-      ancillaryInput3: data.ancillaryInfo.input3,
+      ancillarySelect2: data.ancillaryInfo.select2,      ancillaryInput3: data.ancillaryInfo.input3,
       ancillaryInput4: data.ancillaryInfo.input4,
       ancillarySelectSpan: data.ancillaryInfo.selectSpan,
+      ancillaryChips: (data.ancillaryInfo as any).chips || [],
     });
   }
 
@@ -146,16 +146,16 @@ export class AssessmentOverviewComponent implements OnInit, OnDestroy {
           date4: formData.date4 ?? null,
           date5: formData.date5 ?? null,
           date6: formData.date6 ?? null
-        },
-        ancillaryInfo: {
+        },        ancillaryInfo: {
           input1: formData.ancillaryInput1 || '',
           select1: formData.ancillarySelect1 || '',
           input2: formData.ancillaryInput2 || '',
           select2: formData.ancillarySelect2 || '',
           input3: formData.ancillaryInput3 || '',
           input4: formData.ancillaryInput4 || '',
-          selectSpan: formData.ancillarySelectSpan || ''
-        }
+          selectSpan: formData.ancillarySelectSpan || '',
+          chips: formData.ancillaryChips || []
+        } as OverviewData['ancillaryInfo']
       };
       const assessmentId = 'mock-assessment-123';
       this.overviewDataService.saveOverviewData(assessmentId, overviewData)
