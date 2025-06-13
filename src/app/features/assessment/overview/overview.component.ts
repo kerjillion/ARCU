@@ -9,6 +9,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { Subject, takeUntil } from 'rxjs';
 import { OverviewDataService, OverviewData } from '../services/overview-data.service';
+import { OverviewIdentityComponent } from './overview-identity/overview-identity.component';
+import { OverviewVitalsComponent } from './overview-vitals/overview-vitals.component';
+import { OverviewDatesComponent } from './overview-dates/overview-dates.component';
 
 @Component({
   selector: 'app-assessment-overview',
@@ -20,7 +23,10 @@ import { OverviewDataService, OverviewData } from '../services/overview-data.ser
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    OverviewIdentityComponent,
+    OverviewDatesComponent,
+    OverviewVitalsComponent
   ],
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss']

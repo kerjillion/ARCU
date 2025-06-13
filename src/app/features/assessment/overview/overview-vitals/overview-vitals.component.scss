@@ -1,0 +1,31 @@
+/* Styles for the Project Vitals column component */
+:host {
+  display: block;
+  padding: 0rem;
+}
+
+.ancillary-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.0rem;
+}
+
+.ancillary-row {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-end;
+}
+
+.ancillary-input,
+.ancillary-select {
+  flex: 1;
+}
+
+.ancillary-row-span {
+  display: flex;
+  margin-top: 0rem;
+}
+
+.ancillary-select-span {
+  flex: 2;
+}
