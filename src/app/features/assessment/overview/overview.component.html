@@ -3,10 +3,13 @@
   <p>“You're gonna be Saul Bloom. You're gonna be in a wheelchair. You're gonna have metal legs. Octavio. Metal legs.”</p>
 </section>
 <div class="assessment-overview">
-  <form class="deployment-form" [formGroup]="form">
-    <div class="deployment-columns">
+  
+  <form class="overview-form" [formGroup]="form">
+    <div class="overview-columns">
+
       <!-- Column 1 -->
-      <div class="deployment-col col1">
+      <div class="overview-col col1">
+        <h4>Project Identity</h4>
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Title</mat-label>
           <input matInput formControlName="title" />
@@ -25,7 +28,8 @@
         </mat-form-field>
       </div>
       <!-- Column 2 -->
-      <div class="deployment-col col2">
+      <div class="overview-col col2">
+        <h4>Project Dates</h4>
         <mat-form-field appearance="outline" class="date-field">
           <mat-label>Date 1</mat-label>
           <input matInput formControlName="date1" [matDatepicker]="picker1" />
@@ -64,7 +68,8 @@
         </mat-form-field>
       </div>
       <!-- Column 3 -->
-      <div class="deployment-col col3">
+      <div class="overview-col col3">
+        <h4>Project Vitals</h4>
         <div class="ancillary-grid">
           
           <div class="ancillary-row">
@@ -73,10 +78,11 @@
               <input matInput formControlName="ancillaryInput1" />
             </mat-form-field>
             <mat-form-field appearance="outline" class="ancillary-select">
-              <mat-label>Dropdown 1</mat-label>
+              <mat-label>Priority</mat-label>
               <mat-select formControlName="ancillarySelect1">
-                <mat-option value="option1">Option 1</mat-option>
-                <mat-option value="option2">Option 2</mat-option>
+                <mat-option *ngFor="let option of dropdownOptions.priorities" [value]="option.value">
+                  {{option.label}}
+                </mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -87,10 +93,11 @@
               <input matInput formControlName="ancillaryInput2" />
             </mat-form-field>
             <mat-form-field appearance="outline" class="ancillary-select">
-              <mat-label>Dropdown 2</mat-label>
+              <mat-label>Status</mat-label>
               <mat-select formControlName="ancillarySelect2">
-                <mat-option value="option1">Option 1</mat-option>
-                <mat-option value="option2">Option 2</mat-option>
+                <mat-option *ngFor="let option of dropdownOptions.statuses" [value]="option.value">
+                  {{option.label}}
+                </mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -108,11 +115,11 @@
 
           <div class="ancillary-row ancillary-row-span">
             <mat-form-field appearance="outline" class="ancillary-select-span">
-              <mat-label>Spanning Dropdown 1</mat-label>
+              <mat-label>Project Phase</mat-label>
               <mat-select formControlName="ancillarySelectSpan">
-                <mat-option value="optionA">Option A</mat-option>
-                <mat-option value="optionB">Option B</mat-option>
-                <mat-option value="optionC">Option C</mat-option>
+                <mat-option *ngFor="let option of dropdownOptions.phases" [value]="option.value">
+                  {{option.label}}
+                </mat-option>
               </mat-select>
             </mat-form-field>
           </div>

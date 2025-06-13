@@ -1,5 +1,5 @@
 import { Component, signal, computed } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FloatingMenuComponent } from '../../shared/floating-menu/floating-menu.component';
 import { AssessmentOverviewComponent } from './overview/overview.component';
@@ -67,10 +67,34 @@ throw new Error('Method not implemented.');
       .sort((a, b) => a.order - b.order)
   );
 
-  constructor(private route: ActivatedRoute) {
+  selectedTabIndex = signal(0);
+
+  constructor(private route: ActivatedRoute, private router: Router) {
     this.route.paramMap.subscribe(params => {
       this.assessmentId.set(params.get('id'));
     });
+    // Listen for tab query param
+    this.route.queryParamMap.subscribe(params => {
+      const tab = params.get('tab');
+      if (tab) {
+        const idx = this.visibleTabs().findIndex(t => t.title.toLowerCase().replace(/\s+/g, '') === tab.toLowerCase().replace(/\s+/g, ''));
+        if (idx >= 0) this.selectedTabIndex.set(idx);
+      } else {
+        this.selectedTabIndex.set(0);
+      }
+    });
+  }
+
+  onTabChange(index: number) {
+    const tab = this.visibleTabs()[index];
+    if (tab) {
+      this.router.navigate([], {
+        relativeTo: this.route,
+        queryParams: { tab: tab.title.toLowerCase().replace(/\s+/g, '') },
+        queryParamsHandling: 'merge',
+      });
+    }
+    this.selectedTabIndex.set(index);
   }
 
   readonly displayId = computed(() => this.assessmentId());
