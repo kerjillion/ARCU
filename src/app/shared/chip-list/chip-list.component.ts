@@ -95,3 +95,44 @@ export class SharedChipListComponent {
     );
   }
 }
+
+/**
+ * SharedChipListComponent
+ * 
+ * A reusable Angular Material chip list component that supports autocomplete selection
+ * and optional freeform text input.
+ * 
+ * @example
+ * ```html
+ * <!-- Basic usage with freeform input allowed -->
+ * <app-shared-chip-list
+ *   [availableOptions]="['Option 1', 'Option 2', 'Option 3']"
+ *   [(selected)]="selectedItems">
+ * </app-shared-chip-list>
+ * 
+ * <!-- Restricted to predefined options only -->
+ * <app-shared-chip-list
+ *   [availableOptions]="phaseOptions"
+ *   [(selected)]="selectedPhases"
+ *   [allowFreeform]="false">
+ * </app-shared-chip-list>
+ * ```
+ * 
+ * @input availableOptions - Array of string options that appear in the autocomplete dropdown
+ * @input selected - Array of currently selected chip values (supports two-way binding)
+ * @input allowFreeform - Whether users can type custom values (default: true)
+ * @output selectedChange - Emitted when the selected chips array changes
+ * 
+ * Features:
+ * - Autocomplete dropdown with filtering
+ * - Chip removal with cancel buttons
+ * - Horizontal chip layout with wrapping
+ * - Keyboard navigation support
+ * - Optional freeform input restriction
+ * - Click-to-open dropdown behavior
+ * 
+ * When allowFreeform=false:
+ * - Users can only select from availableOptions
+ * - Typing is prevented but dropdown navigation works
+ * - Click to open dropdown is still available
+ */
