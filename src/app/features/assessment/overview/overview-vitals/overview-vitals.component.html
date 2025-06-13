@@ -47,4 +47,11 @@
       </mat-select>
     </mat-form-field>
   </div>
+  <div class="ancillary-row ancillary-row-span">
+    <app-shared-chip-list
+      [availableOptions]="phaseLabels"
+      [(selected)]="ancillaryChips"
+      [allowFreeform]="false"
+    ></app-shared-chip-list>
+  </div>
 </div>

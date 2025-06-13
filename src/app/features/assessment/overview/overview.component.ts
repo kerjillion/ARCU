@@ -52,6 +52,7 @@ export class AssessmentOverviewComponent implements OnInit, OnDestroy {
     ancillaryInput3: new FormControl(''),
     ancillaryInput4: new FormControl(''),
     ancillarySelectSpan: new FormControl(''),
+    ancillaryChips: new FormControl<string[]>([]),
   });
 
   dropdownOptions: any = {};

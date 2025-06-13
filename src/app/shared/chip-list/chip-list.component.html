@@ -1,0 +1,23 @@
+<mat-form-field class="chip-list-form-field" appearance="outline">
+  <mat-chip-grid #chipGrid aria-label="Selected items">
+    <mat-chip-row *ngFor="let chip of selected" (removed)="removeChip(chip)">
+      {{chip}}
+      <button matChipRemove type="button">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip-row>  </mat-chip-grid>  <input
+    placeholder="Add..."
+    [formControl]="chipCtrl"
+    [matAutocomplete]="auto"
+    [matChipInputFor]="chipGrid"
+    (matChipInputTokenEnd)="allowFreeform ? addChip($event) : null"
+    (focus)="onInputFocus()"
+    (keydown)="onInputKeydown($event)"
+    aria-label="Add chip"
+  />
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectOption($event)" autoSelectActiveOption>
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
