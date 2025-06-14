@@ -1,4 +1,4 @@
-<div class="ancillary-grid">
+<div class="ancillary-grid" [formGroup]="form" >
   <div class="ancillary-row">
     <mat-form-field appearance="outline" class="ancillary-input">
       <mat-label>Input 1</mat-label>
@@ -45,12 +45,12 @@
           {{option.label}}
         </mat-option>
       </mat-select>
-    </mat-form-field>
-  </div>
+    </mat-form-field>  </div>
   <div class="ancillary-row ancillary-row-span">
     <app-shared-chip-list
       [availableOptions]="phaseLabels"
-      [(selected)]="ancillaryChips"
+      [selected]="form.get('ancillaryChips')?.value || []"
+      (selectedChange)="form.get('ancillaryChips')?.setValue($event)"
       [allowFreeform]="false"
     ></app-shared-chip-list>
   </div>

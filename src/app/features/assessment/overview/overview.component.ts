@@ -107,10 +107,8 @@ export class AssessmentOverviewComponent implements OnInit, OnDestroy {
           console.error('Error loading dropdown options:', error);
         }
       });
-  }
-
-  private populateForm(data: OverviewData): void {
-    this.form.patchValue({
+  }  private populateForm(data: OverviewData): void {
+    const formData = {
       title: data.title,
       objective: data.objective,
       impactSummary: data.impactSummary,
@@ -124,11 +122,14 @@ export class AssessmentOverviewComponent implements OnInit, OnDestroy {
       ancillaryInput1: data.ancillaryInfo.input1,
       ancillarySelect1: data.ancillaryInfo.select1,
       ancillaryInput2: data.ancillaryInfo.input2,
-      ancillarySelect2: data.ancillaryInfo.select2,      ancillaryInput3: data.ancillaryInfo.input3,
+      ancillarySelect2: data.ancillaryInfo.select2,
+      ancillaryInput3: data.ancillaryInfo.input3,
       ancillaryInput4: data.ancillaryInfo.input4,
       ancillarySelectSpan: data.ancillaryInfo.selectSpan,
       ancillaryChips: (data.ancillaryInfo as any).chips || [],
-    });
+    };
+    
+    this.form.patchValue(formData);
   }
 
   onSave(): void {

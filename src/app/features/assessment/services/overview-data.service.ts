@@ -22,6 +22,7 @@ export interface OverviewData {
     input3: string;
     input4: string;
     selectSpan: string;
+    chips: string[];
   };
 }
 
@@ -42,15 +43,15 @@ export class OverviewDataService {
       date4: new Date('2024-09-01'),
       date5: new Date('2024-12-15'),
       date6: new Date('2025-03-30')
-    },
-    ancillaryInfo: {
+    },    ancillaryInfo: {
       input1: 'Budget Code: HC-2024-001',
       select1: 'high-priority',
       input2: 'Stakeholder: Dr. Sarah Johnson',
       select2: 'approved',
       input3: 'Department: IT Health Services',
       input4: 'Project Manager: Mike Chen',
-      selectSpan: 'phase-1-implementation'
+      selectSpan: 'phase-1-implementation',
+      chips: ['Planning Phase', 'Testing & Validation']
     }
   };
 
@@ -137,7 +138,8 @@ export class OverviewDataService {
         select2: '',
         input3: '',
         input4: '',
-        selectSpan: ''
+        selectSpan: '',
+        chips: []
       }
     };
   }

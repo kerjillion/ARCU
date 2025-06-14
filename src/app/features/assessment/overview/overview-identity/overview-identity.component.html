@@ -1,16 +1,18 @@
-<mat-form-field appearance="outline" class="full-width">
-  <mat-label>Title</mat-label>
-  <input matInput formControlName="title" />
-</mat-form-field>
-<mat-form-field appearance="outline" class="full-width">
-  <mat-label>Objective</mat-label>
-  <textarea matInput formControlName="objective" rows="3"></textarea>
-</mat-form-field>
-<mat-form-field appearance="outline" class="full-width">
-  <mat-label>Impact Summary</mat-label>
-  <textarea matInput formControlName="impactSummary" rows="3"></textarea>
-</mat-form-field>
-<mat-form-field appearance="outline" class="full-width">
-  <mat-label>Target Population</mat-label>
-  <textarea matInput formControlName="targetPopulation" rows="3"></textarea>
-</mat-form-field>
+<div [formGroup]="form">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" />
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Objective</mat-label>
+    <textarea matInput formControlName="objective" rows="3"></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Impact Summary</mat-label>
+    <textarea matInput formControlName="impactSummary" rows="3"></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Target Population</mat-label>
+    <textarea matInput formControlName="targetPopulation" rows="3"></textarea>
+  </mat-form-field>
+</div>
