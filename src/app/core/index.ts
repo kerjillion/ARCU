@@ -1,6 +1,7 @@
 export * from './auth.service';
 export * from './api.service';
 export * from './state.service';
+export * from './assessment-state.service';
 
 /*
 core/index.ts Documentation
@@ -12,6 +13,7 @@ Exports:
 - auth.service: Authentication state and logic
 - api.service: HTTP API calls with loading state
 - state.service: Shared application state management
+- assessment-state.service: Assessment-related state and logic
 
 Usage:
 Instead of importing services individually from their paths, you can import them from the core barrel:

@@ -1,45 +1,15 @@
-<div class="status-bar">
+<div class="summary-bar">
   <!-- Assessment info on the left -->
   <span style="margin-right:auto; display: flex; flex-direction: column; justify-content: center; gap: 0.1rem;">
     <span style="display: flex; align-items: center; gap: 1.5rem;">
-      <span class="assessment-number"><strong>Number:</strong> <span style="font-weight: normal;"> {{ displayId() }}</span></span>
-      <span class="assessment-title"><strong>Title:</strong> <span style="font-weight: normal;"> {{ assessmentTitle }}</span></span>
+      <span class="assessment-number"><span style="font-weight: normal;">{{ displayId()}}</span></span>
+      <span class="assessment-title"><span style="font-weight: normal;">{{ assessmentTitle }}</span></span>
     </span>
     <span><strong>Status:</strong> <span style="font-weight: normal;"> {{ assessmentStatus }}</span></span>
   </span>
   <!-- Actions on the right -->
-  <span class="status-bar-actions">
-    <button
-      class="icon-round-btn reports-btn"
-      (click)="openReportsPanel()"
-      aria-label="Open Assessment Reports"
-      type="button"
-      title="Show available reports"
-    >
-      <img src="assets/images/reports.png" alt="Reports" />
-    </button>
-    <button
-      class="icon-round-btn reports-btn"
-      (click)="openAttachementsPanel()"
-      aria-label="Show Attachments"
-      type="button"
-      title="Attached Files and Links"
-    >
-      <img src="assets/images/paperclip_sketch.png" alt="Attachments" />
-    </button>
-    <app-floating-menu
-      [controlImageSrc]="'assets/images/log_sketch.png'"
-      [menuPosition]="'right'"
-      [items]="logMenuItems"
-      [hideToggle]="false"
-      [horizontal]="false"
-      [right]="'auto'"
-      [top]="'auto'"
-      [left]="'auto'"
-      [bottom]="'auto'"
-      title="Show Application Logs"
-    >
-    </app-floating-menu>
+  <span class="summary-bar-actions">
+    
   </span>
 </div>
 

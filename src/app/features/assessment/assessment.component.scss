@@ -1,32 +1,24 @@
-.status-bar {
-  margin: 3px;
-  padding: 1rem;
-  background: #e3e9f6;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.2rem; // small gap between buttons
-  justify-content: flex-end; // move all children to the right
-  min-height: 3rem;
-  font-weight: 500;
-  position: relative; /* Key to containing absolutely positioned children */
-  padding: 0.5rem 1rem;
-}
 
-.status-bar,
-.status-bar * {
+
+.summary-bar,
+.summary-bar * {
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-  font-weight: 400; // normal weight
+
 }
 
-.status-bar-actions {
+.summary-bar {
+  margin: 3px;
   display: flex;
   align-items: center;
   gap: 0.2rem;
   border: 2px solid #bfc8e0;      // lighter slate blue border
-  border-radius: 1.5rem;           // curved corners
-  padding: 0.25rem 0.75rem;
-  background: transparent;         // transparent background
+  border-radius: 0.5rem;           // curved corners
+  padding: 0.5rem 1rem;
+  background: #e3e9f6;    // transparent background
+  justify-content: flex-end;
+  min-height: 3rem;
+  position: relative; /* Key to containing absolutely positioned children */
+  font-weight: 400; // normal weight
 }
 
 .assessments-content {

@@ -1,7 +1,6 @@
 import { Component, signal, computed } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
-import { FloatingMenuComponent } from '../../shared/floating-menu/floating-menu.component';
 import { AssessmentOverviewComponent } from './overview/overview.component';
 import { AssessmentDeploymentComponent } from './deployment/deployment.component';
 import { AssessmentRelationshipsComponent } from './relationships/relationships.component';
@@ -12,6 +11,8 @@ import { AssessmentRisksComponent } from './risks/risks.component';
 import { AssessmentRiskListComponent } from './risk-list/risk-list.component';
 import { AssessmentNotesComponent } from './notes/notes.component';
 import { AssessmentPovComponent } from './pov/pov.component';
+import { AssessmentStateService } from '../../core';
+import { OverviewDataService, OverviewData } from './services/overview-data.service';
 
 interface AssessmentTab {
   title: string;
@@ -25,7 +26,6 @@ interface AssessmentTab {
   standalone: true,
   imports: [
     MatTabsModule,
-    FloatingMenuComponent,
     AssessmentOverviewComponent,
     AssessmentDeploymentComponent,
     AssessmentRelationshipsComponent,
@@ -69,9 +69,25 @@ throw new Error('Method not implemented.');
 
   selectedTabIndex = signal(0);
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private assessmentState: AssessmentStateService,
+    private overviewDataService: OverviewDataService
+  ) {
     this.route.paramMap.subscribe(params => {
-      this.assessmentId.set(params.get('id'));
+      const id = params.get('id');
+      this.assessmentId.set(id);
+      if (id) {
+        this.overviewDataService.getOverviewData(id).subscribe((data: OverviewData) => {
+          this.assessmentTitle = data.title;
+          // For demo, use select2 as status (adjust as needed)
+          this.assessmentStatus = data.ancillaryInfo.select2 || 'Unknown';
+          this.assessmentState.setAssessment({ id, name: data.title, status: this.assessmentStatus });
+        });
+      } else {
+        this.assessmentState.clear();
+      }
     });
     // Listen for tab query param
     this.route.queryParamMap.subscribe(params => {

@@ -32,7 +32,7 @@ export interface OverviewData {
 export class OverviewDataService {
   
   private mockData: OverviewData = {
-    title: 'Digital Health Initiative',
+    title: 'Digital Health Initiative - Germ Theory is the Future',
     objective: 'Implement a comprehensive digital health platform to improve patient outcomes and streamline healthcare delivery processes across the organization.',
     impactSummary: 'Expected to reduce patient wait times by 30%, improve care coordination between departments, and enhance overall patient satisfaction scores.',
     targetPopulation: 'Primary care patients aged 18-65 with chronic conditions requiring ongoing monitoring and care management.',
@@ -47,7 +47,7 @@ export class OverviewDataService {
       input1: 'Budget Code: HC-2024-001',
       select1: 'high-priority',
       input2: 'Stakeholder: Dr. Sarah Johnson',
-      select2: 'approved',
+      select2: 'Approved',
       input3: 'Department: IT Health Services',
       input4: 'Project Manager: Mike Chen',
       selectSpan: 'phase-1-implementation',
@@ -94,11 +94,11 @@ export class OverviewDataService {
         { value: 'critical-priority', label: 'Critical Priority' }
       ],
       statuses: [
-        { value: 'draft', label: 'Draft' },
-        { value: 'under-review', label: 'Under Review' },
-        { value: 'approved', label: 'Approved' },
-        { value: 'in-progress', label: 'In Progress' },
-        { value: 'completed', label: 'Completed' }
+        { value: 'Draft', label: 'Draft' },
+        { value: 'Under Review', label: 'Under Review' },
+        { value: 'Approved', label: 'Approved' },
+        { value: 'In Progress', label: 'In Progress' },
+        { value: 'Completed', label: 'Completed' }
       ],
       phases: [
         { value: 'planning', label: 'Planning Phase' },

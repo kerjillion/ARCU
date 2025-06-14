@@ -4,11 +4,13 @@ import { filter, map, mergeMap } from 'rxjs/operators';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FloatingMenuComponent } from './shared/floating-menu/floating-menu.component';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
+import { AssessmentStateService } from './core';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-frame',
   standalone: true,
-  imports: [RouterOutlet, FloatingMenuComponent, SearchbarComponent],
+  imports: [RouterOutlet, FloatingMenuComponent, SearchbarComponent, NgIf],
   templateUrl: './frame.component.html',
   styleUrls: ['./app.scss']
 })
@@ -32,7 +34,7 @@ export class FrameComponent {
   // Reactive search query
   readonly searchQuery = signal('');
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute, public assessmentState: AssessmentStateService) {
     const title$ = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(() => {
