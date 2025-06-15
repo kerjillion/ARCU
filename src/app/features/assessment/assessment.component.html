@@ -28,7 +28,7 @@
       @if (tab.title === 'Overview') {
         <app-assessment-overview />
       }
-      @if (tab.title === 'Deployment') {
+      @if (tab.title === 'Deployments') {
         <app-assessment-deployment [assessmentId]="assessmentId() ? +assessmentId()! : 0" [assessmentTitle]="assessmentTitle" />
       }
       @if (tab.title === 'Relationships') {
@@ -37,10 +37,10 @@
       @if (tab.title === 'Scope') {
         <app-assessment-scope />
       }
-      @if (tab.title === 'Policy') {
+      @if (tab.title === 'Policies') {
         <app-assessment-policy />
       }
-      @if (tab.title === 'Regulation') {
+      @if (tab.title === 'Regulations') {
         <app-assessment-regulation />
       }
       @if (tab.title === 'Risks') {
@@ -54,6 +54,9 @@
       }
       @if (tab.title === 'POV') {
         <app-assessment-pov />
+      }
+      @if (tab.title === 'Stakeholders') {
+        <app-assessment-stakeholders />
       }
     </mat-tab>
   }

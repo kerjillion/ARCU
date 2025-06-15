@@ -15,6 +15,7 @@ import { AssessmentNotesComponent } from './notes/notes.component';
 import { AssessmentPovComponent } from './pov/pov.component';
 import { AssessmentStateService } from '../../core';
 import { OverviewDataService, OverviewData } from './services/overview-data.service';
+import { AssessmentStakeholdersComponent } from './stakeholders/stakeholders.component';
 
 interface AssessmentTab {
   title: string;
@@ -39,7 +40,8 @@ interface AssessmentTab {
     AssessmentRisksComponent,
     AssessmentRiskListComponent,
     AssessmentNotesComponent,
-    AssessmentPovComponent
+    AssessmentPovComponent,
+    AssessmentStakeholdersComponent
   ],
   templateUrl: './assessment.component.html',
   styleUrls: ['./assessment.component.scss']
@@ -53,15 +55,16 @@ throw new Error('Method not implemented.');
   // Signal for tab definitions
   readonly tabs = signal<AssessmentTab[]>([
     { title: 'Overview',  disabled: false, visible: true,  order: 1 },
-    { title: 'Deployment',  disabled: false, visible: true,  order: 2 },
+    { title: 'Deployments',  disabled: false, visible: true,  order: 2 },
     { title: 'Relationships',  disabled: false, visible: true,  order: 3 },
-    { title: 'Scope',  disabled: false, visible: true,  order: 4 },
-    { title: 'Policy',  disabled: false, visible: true,  order: 5 },
-    { title: 'Regulation',  disabled: false, visible: true,  order: 6 },
-    { title: 'Risks',  disabled: false, visible: true,  order: 7 },
-    { title: 'Risk List',  disabled: false, visible: true,  order: 8 },
-    { title: 'Notes',  disabled: false, visible: true,  order: 9 },
-    { title: 'POV', disabled: false, visible: true,  order: 10 },
+    { title: 'Stakeholders',  disabled: false, visible: true,  order: 4 },
+    { title: 'Scope',  disabled: false, visible: true,  order: 5 },
+    { title: 'Policies',  disabled: false, visible: true,  order: 6 },
+    { title: 'Regulations',  disabled: false, visible: true,  order: 7 },
+    { title: 'Risks',  disabled: false, visible: true,  order: 8 },
+    { title: 'Risk List',  disabled: false, visible: true,  order: 9 },
+    { title: 'Notes',  disabled: false, visible: true,  order: 10 },
+    { title: 'POV', disabled: false, visible: true,  order: 11 },
   ]);
 
   // Computed signal for visible and ordered tabs
