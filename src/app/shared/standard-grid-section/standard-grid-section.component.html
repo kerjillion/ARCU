@@ -1,0 +1,8 @@
+<section class="standard-grid-section">
+  <h2>{{ header }}</h2>
+  <ng-content select="app-instructions"></ng-content>
+  <div class="instructions" *ngIf="instructions && !hasProjectedInstructions()">{{ instructions }}</div>
+  <div class="data-grid">
+    <ng-content></ng-content>
+  </div>
+</section>

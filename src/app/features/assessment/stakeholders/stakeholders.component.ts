@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
+import { StandardGridSectionComponent } from "../../../shared/standard-grid-section/standard-grid-section.component";
+import { InstructionsComponent } from "../../../shared/instructions/instructions.component";
 
 @Component({
   selector: 'app-assessment-stakeholders',
   standalone: true,
-  template: `
-    <div class="assessment-stakeholders">
-      <h2>Stakeholders</h2>
-      <p>List and manage stakeholders for this assessment here.</p>
-    </div>
-  `,
-  styleUrls: ['./stakeholders.component.scss']
+  templateUrl: './stakeholders.component.html',
+  styleUrls: ['./stakeholders.component.scss'],
+  imports: [StandardGridSectionComponent, InstructionsComponent]
 })
 export class AssessmentStakeholdersComponent {}

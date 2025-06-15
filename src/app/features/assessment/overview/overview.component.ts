@@ -13,6 +13,7 @@ import { OverviewIdentityComponent } from './overview-identity/overview-identity
 import { OverviewVitalsComponent } from './overview-vitals/overview-vitals.component';
 import { OverviewDatesComponent } from './overview-dates/overview-dates.component';
 import { ActivatedRoute } from '@angular/router';
+import { InstructionsComponent } from '../../../shared/instructions/instructions.component';
 
 @Component({
   selector: 'app-assessment-overview',
@@ -27,7 +28,8 @@ import { ActivatedRoute } from '@angular/router';
     MatNativeDateModule,
     OverviewIdentityComponent,
     OverviewDatesComponent,
-    OverviewVitalsComponent
+    OverviewVitalsComponent,
+    InstructionsComponent
   ],
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss']

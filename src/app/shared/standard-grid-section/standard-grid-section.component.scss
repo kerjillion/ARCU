@@ -1,0 +1,22 @@
+.standard-grid-section {
+  padding: 0rem;
+  h2 {
+    margin-bottom: 0.5rem;
+    color: #444;
+    font-size: 1.5rem;
+  }
+  .instructions {
+    margin-bottom: 1.0rem;
+    color: #444;
+    font-size: 1.1rem;
+  }
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.25rem;
+    background: #fafbfc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.06);
+  }
+}
