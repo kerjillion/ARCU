@@ -1,6 +1,8 @@
 import { Component, signal, computed } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { AssessmentOverviewComponent } from './overview/overview.component';
 import { AssessmentDeploymentComponent } from './deployment/deployment.component';
 import { AssessmentRelationshipsComponent } from './relationships/relationships.component';
@@ -26,6 +28,8 @@ interface AssessmentTab {
   standalone: true,
   imports: [
     MatTabsModule,
+    MatIconModule,
+    MatTooltipModule,
     AssessmentOverviewComponent,
     AssessmentDeploymentComponent,
     AssessmentRelationshipsComponent,
@@ -135,6 +139,24 @@ throw new Error('Method not implemented.');
   // Optionally, add a method to close the panel
   closeReportsPanel() {
     this.isReportsPanelOpen = false;
+  }
+
+  // Sliding panel properties
+  isPanelOpen = signal(false);
+  panelTitle = signal('');
+  openPanel(title: string) {
+    // If panel is open and same title, close it
+    if (this.isPanelOpen() && this.panelTitle() === title) {
+      this.closePanel();
+    } else {
+      // Otherwise open/switch to new panel
+      this.panelTitle.set(title);
+      this.isPanelOpen.set(true);
+    }
+  }
+
+  closePanel() {
+    this.isPanelOpen.set(false);
   }
 
   assessmentTitle = 'Assessment Title Here'; // Replace with actual title

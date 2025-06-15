@@ -9,8 +9,17 @@
   </span>
   <!-- Actions on the right -->
   <span class="summary-bar-actions">
-    
+    <button mat-icon-button matTooltip="Attachments" aria-label="Attachments" (click)="openPanel('Attachments')">
+      <mat-icon>attach_file</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Reports" aria-label="Reports" (click)="openPanel('Reports')">
+      <mat-icon>insert_chart</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Logs" aria-label="Logs" (click)="openPanel('Logs')">
+      <mat-icon>list</mat-icon>
+    </button>
   </span>
+  
 </div>
 
 <mat-tab-group [selectedIndex]="selectedTabIndex()" (selectedIndexChange)="onTabChange($event)">
@@ -49,4 +58,17 @@
     </mat-tab>
   }
 </mat-tab-group>
+
+<!-- Sliding panel -->
+<div class="slide-panel" [class.open]="isPanelOpen()">
+  <div class="slide-panel-header">
+    <h3>{{ panelTitle() }}</h3>
+    <button mat-icon-button (click)="closePanel()" aria-label="Close">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="slide-panel-content">
+    <p>Panel content goes here...</p>
+  </div>
+</div>
 
