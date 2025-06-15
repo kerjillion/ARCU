@@ -1,3 +1,99 @@
 <div class="assessment-deployment">
-  <h2>Deployment</h2>
+  <div class="add-deployment-bar">
+    <button mat-raised-button color="accent" class="add-deployment-btn" (click)="addDeployment()">
+      <mat-icon class="add-icon">add_circle</mat-icon>
+      <span>Add Deployment</span>
+    </button>
+  </div>
+  <p>Deployments found: {{ filteredDeployments.length }}</p>
+  <table *ngIf="filteredDeployments.length > 0">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title / Phase</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let deployment of filteredDeployments; let i = index">
+        <ng-container *ngIf="editIndex === i && editDeployment; else displayRow">
+          <td>
+            <mat-form-field appearance="outline" class="full-width">
+              <input matInput type="number" [value]="editDeployment.number" disabled />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline" class="full-width">
+              <input matInput [(ngModel)]="editDeployment.title" />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-select [(ngModel)]="editDeployment.type">
+                <mat-option *ngFor="let t of deploymentTypes" [value]="t">{{
+                  t
+                }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-select [(ngModel)]="editDeployment.status">
+                <mat-option *ngFor="let s of deploymentStatuses" [value]="s">{{
+                  s
+                }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline" class="full-width">
+              <input matInput [matDatepicker]="startPicker" [(ngModel)]="editDeployment.startDate" />
+              <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+              <mat-datepicker #startPicker></mat-datepicker>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline" class="full-width">
+              <input matInput [matDatepicker]="endPicker" [(ngModel)]="editDeployment.endDate" />
+              <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+              <mat-datepicker #endPicker></mat-datepicker>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline" class="full-width">
+              <input matInput [(ngModel)]="editDeployment.description" />
+            </mat-form-field>
+          </td>
+          <td class="actions-col">
+            <button mat-icon-button color="primary" (click)="saveEdit(i)" matTooltip="Save">
+              <mat-icon>check</mat-icon>
+            </button>
+            <button mat-icon-button (click)="cancelEdit()" matTooltip="Cancel">
+              <mat-icon>close</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <ng-template #displayRow>
+          <td>{{ deployment.number }}</td>
+          <td>{{ deployment.title }}</td>
+          <td>{{ deployment.type }}</td>
+          <td>{{ deployment.status }}</td>
+          <td>{{ deployment.startDate | date:'yyyy-MM-dd' }}</td>
+          <td>{{ deployment.endDate | date:'yyyy-MM-dd' }}</td>
+          <td>{{ deployment.description }}</td>
+          <td class="actions-col">
+            <button mat-icon-button color="accent" (click)="startEdit(i, deployment)" matTooltip="Edit">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-template>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="filteredDeployments.length === 0">No deployments found for this assessment.</p>
 </div>

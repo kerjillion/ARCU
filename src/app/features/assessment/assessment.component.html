@@ -29,7 +29,7 @@
         <app-assessment-overview />
       }
       @if (tab.title === 'Deployment') {
-        <app-assessment-deployment />
+        <app-assessment-deployment [assessmentId]="assessmentId() ? +assessmentId()! : 0" [assessmentTitle]="assessmentTitle" />
       }
       @if (tab.title === 'Relationships') {
         <app-assessment-relationships />
