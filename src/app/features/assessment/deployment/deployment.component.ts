@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,13 +10,13 @@ import { MatIconModule } from '@angular/material/icon';
 
 interface Deployment {
   number: number;
-  title: string; // Added for phase/title
+  title: string;
   type: string;
   status: string;
   startDate: string;
   endDate: string;
   description: string;
-  assessmentId: number; // Added property
+  assessmentId: number;
 }
 
 @Component({
@@ -26,48 +26,22 @@ interface Deployment {
   templateUrl: './deployment.component.html',
   styleUrls: ['./deployment.component.scss']
 })
-export class AssessmentDeploymentComponent {
+export class AssessmentDeploymentComponent implements OnInit {
   @Input() assessmentId!: number;
   @Input() assessmentTitle: string = '';
+
+  deployments: Deployment[] = [];
 
   deploymentTypes: string[] = ['Initial', 'Follow-up', 'Final', 'Other'];
   deploymentStatuses: string[] = ['Active', 'Scheduled', 'Completed', 'Cancelled'];
 
-  deployments: Deployment[] = [
-    {
-      number: 1,
-      title: 'Planning Phase',
-      type: 'Initial',
-      status: 'Active',
-      startDate: '2025-06-01',
-      endDate: '2025-06-10',
-      description: 'First deployment for assessment.',
-      assessmentId: 8675309
-    },
-    {
-      number: 2,
-      title: 'Execution Phase',
-      type: 'Follow-up',
-      status: 'Scheduled',
-      startDate: '2025-07-01',
-      endDate: '2025-07-05',
-      description: 'Second deployment scheduled.',
-      assessmentId: 8675309
-    },
-    {
-      number: 3,
-      title: 'Wrap-up',
-      type: 'Initial',
-      status: 'Completed',
-      startDate: '2025-05-01',
-      endDate: '2025-05-10',
-      description: 'Deployment for another assessment.',
-      assessmentId: 1234567
-    }
-  ];
-
   editIndex: number | null = null;
   editDeployment: Deployment | null = null;
+
+  async ngOnInit() {
+    const response = await fetch('assets/data/deployments.json');
+    this.deployments = await response.json();
+  }
 
   startEdit(index: number, deployment: Deployment) {
     this.editIndex = index;

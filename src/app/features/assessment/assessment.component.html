@@ -23,43 +23,25 @@
 </div>
 
 <mat-tab-group [selectedIndex]="selectedTabIndex()" (selectedIndexChange)="onTabChange($event)">
-  @for (tab of visibleTabs(); track tab.title) {
-    <mat-tab [label]="tab.title" [disabled]="tab.disabled">
-      @if (tab.title === 'Overview') {
-        <app-assessment-overview />
-      }
-      @if (tab.title === 'Deployments') {
-        <app-assessment-deployment [assessmentId]="assessmentId() ? +assessmentId()! : 0" [assessmentTitle]="assessmentTitle" />
-      }
-      @if (tab.title === 'Relationships') {
-        <app-assessment-relationships />
-      }
-      @if (tab.title === 'Scope') {
-        <app-assessment-scope />
-      }
-      @if (tab.title === 'Policies') {
-        <app-assessment-policy />
-      }
-      @if (tab.title === 'Regulations') {
-        <app-assessment-regulation />
-      }
-      @if (tab.title === 'Risks') {
-        <app-assessment-risks />
-      }
-      @if (tab.title === 'Risk List') {
-        <app-assessment-risk-list />
-      }
-      @if (tab.title === 'Notes') {
-        <app-assessment-notes />
-      }
-      @if (tab.title === 'POV') {
-        <app-assessment-pov />
-      }
-      @if (tab.title === 'Stakeholders') {
-        <app-assessment-stakeholders />
-      }
-    </mat-tab>
-  }
+  <mat-tab *ngFor="let tab of visibleTabs(); let idx = index; trackBy: trackByTitle" [label]="tab.title" [disabled]="tab.disabled">
+    <ng-template matTabContent>
+      <ng-container *ngIf="selectedTabIndex() === idx">
+        <ng-container [ngSwitch]="tab.title">
+          <app-assessment-overview *ngSwitchCase="'Overview'"></app-assessment-overview>
+          <app-assessment-deployment *ngSwitchCase="'Deployments'" [assessmentId]="assessmentId() ? +assessmentId()! : 0" [assessmentTitle]="assessmentTitle"></app-assessment-deployment>
+          <app-assessment-relationships *ngSwitchCase="'Relationships'"></app-assessment-relationships>
+          <app-assessment-scope *ngSwitchCase="'Scope'"></app-assessment-scope>
+          <app-assessment-policy *ngSwitchCase="'Policies'"></app-assessment-policy>
+          <app-assessment-regulation *ngSwitchCase="'Regulations'"></app-assessment-regulation>
+          <app-assessment-risks *ngSwitchCase="'Risks'"></app-assessment-risks>
+          <app-assessment-risk-list *ngSwitchCase="'Risk List'"></app-assessment-risk-list>
+          <app-assessment-notes *ngSwitchCase="'Notes'"></app-assessment-notes>
+          <app-assessment-pov *ngSwitchCase="'POV'"></app-assessment-pov>
+          <app-assessment-stakeholders *ngSwitchCase="'Stakeholders'"></app-assessment-stakeholders>
+        </ng-container>
+      </ng-container>
+    </ng-template>
+  </mat-tab>
 </mat-tab-group>
 
 <!-- Sliding panel -->

@@ -16,6 +16,7 @@ import { AssessmentPovComponent } from './pov/pov.component';
 import { AssessmentStateService } from '../../core';
 import { OverviewDataService, OverviewData } from './services/overview-data.service';
 import { AssessmentStakeholdersComponent } from './stakeholders/stakeholders.component';
+import { CommonModule } from '@angular/common';
 
 interface AssessmentTab {
   title: string;
@@ -28,6 +29,7 @@ interface AssessmentTab {
   selector: 'app-assessments',
   standalone: true,
   imports: [
+    CommonModule,
     MatTabsModule,
     MatIconModule,
     MatTooltipModule,
@@ -164,4 +166,8 @@ throw new Error('Method not implemented.');
 
   assessmentTitle = 'Assessment Title Here'; // Replace with actual title
   assessmentStatus = 'In Progress'; // Replace with actual status
+
+  trackByTitle(index: number, tab: { title: string }) {
+    return tab.title;
+  }
 }
