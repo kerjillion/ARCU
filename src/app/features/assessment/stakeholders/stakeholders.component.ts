@@ -9,4 +9,6 @@ import { InstructionsComponent } from "../../../shared/instructions/instructions
   styleUrls: ['./stakeholders.component.scss'],
   imports: [StandardGridSectionComponent, InstructionsComponent]
 })
-export class AssessmentStakeholdersComponent {}
+export class AssessmentStakeholdersComponent {
+
+}

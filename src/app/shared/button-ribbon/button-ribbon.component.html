@@ -1,0 +1,12 @@
+<div class="button-ribbon">
+  <ng-container *ngFor="let btn of buttons">
+    <button 
+      [disabled]="btn.disabled"
+      (click)="onButtonClick(btn)"
+      *ngIf="btn.visible !== false"
+    >
+      <span *ngIf="btn.icon" class="material-icons">{{ btn.icon }}</span>
+      {{ btn.name }}
+    </button>
+  </ng-container>
+</div>

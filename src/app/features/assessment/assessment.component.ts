@@ -17,6 +17,7 @@ import { AssessmentStateService } from '../../core';
 import { OverviewDataService, OverviewData } from './services/overview-data.service';
 import { AssessmentStakeholdersComponent } from './stakeholders/stakeholders.component';
 import { CommonModule } from '@angular/common';
+import { ButtonRibbonComponent, RibbonButton } from "../../shared/button-ribbon/button-ribbon.component";
 
 interface AssessmentTab {
   title: string;
@@ -43,8 +44,9 @@ interface AssessmentTab {
     AssessmentRiskListComponent,
     AssessmentNotesComponent,
     AssessmentPovComponent,
-    AssessmentStakeholdersComponent
-  ],
+    AssessmentStakeholdersComponent,
+    ButtonRibbonComponent
+],
   templateUrl: './assessment.component.html',
   styleUrls: ['./assessment.component.scss']
 })
@@ -169,5 +171,19 @@ throw new Error('Method not implemented.');
 
   trackByTitle(index: number, tab: { title: string }) {
     return tab.title;
+  }
+
+    ribbonButtons: RibbonButton[] = [
+    { name: 'Send', icon: 'send', visible: true },
+    { name: 'Check Out', icon: 'logout', visible: true },
+    { name: 'Approve', icon: 'check_circle', visible: true },
+    { name: 'Reject', icon: 'cancel', visible: true },
+    { name: 'Complete', icon: 'done_all', visible: true },
+    { name: 'Cancel', icon: 'close', visible: true }
+  ];
+
+  onRibbonButtonClick(btn: RibbonButton) {
+    // Handle button click here, e.g., context-aware logic
+    console.log('Ribbon button clicked:', btn);
   }
 }

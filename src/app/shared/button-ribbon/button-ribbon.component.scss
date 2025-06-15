@@ -1,0 +1,42 @@
+.button-ribbon {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.0rem 0;
+  justify-content: flex-end;
+  margin-right: 12rem;
+}
+.button-ribbon button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  background: linear-gradient(90deg, #1976d2 0%, #42a5f5 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  outline: none;
+}
+.button-ribbon button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #1565c0 0%, #1e88e5 100%);
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.18);
+  transform: translateY(-2px) scale(1.03);
+}
+.button-ribbon button:active:not(:disabled) {
+  background: linear-gradient(90deg, #1976d2 0%, #42a5f5 100%);
+  box-shadow: 0 1px 4px rgba(25, 118, 210, 0.10);
+  transform: scale(0.98);
+}
+.button-ribbon button:disabled {
+  background: #e3e8ef;
+  color: #b0b8c1;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.button-ribbon .material-icons {
+  font-size: 1.2em;
+  vertical-align: middle;
+}
