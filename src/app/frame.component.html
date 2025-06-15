@@ -1,16 +1,14 @@
 <header class="app-header">
   <img src="assets/images/rock.png" alt="Rock" class="app-logo" />
   <h1 class="app-title" (click)="onDashboard()" style="cursor:pointer">ARCU</h1>
-  <app-floating-menu
+  
+  <app-fly-menu
     [items]="menuItems()"
-    [menuPosition]="'right'"
-    [left]="'0rem'"
-    [top]="'0.0rem'"
-    [defaultOpen]="false"
-    [hideToggle]="false"
-    [horizontal]="true"
+    [direction]="'right'"
+    [expandedByDefault]="false"
     class="header-menu">
-  </app-floating-menu>
+  </app-fly-menu>
+
   <span class="page-title">{{ pageTitle() }}</span>
   <app-searchbar (search)="onSearch($event)"></app-searchbar>
 </header>

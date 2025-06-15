@@ -2,7 +2,7 @@ import { Component, computed, signal, effect } from '@angular/core';
 import { RouterOutlet, ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { FloatingMenuComponent } from './shared/floating-menu/floating-menu.component';
+import { FlyMenuComponent } from './shared/fly-menu/fly-menu.component';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 import { AssessmentStateService } from './core';
 import { NgIf } from '@angular/common';
@@ -10,7 +10,7 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-frame',
   standalone: true,
-  imports: [RouterOutlet, FloatingMenuComponent, SearchbarComponent],
+  imports: [RouterOutlet, FlyMenuComponent, SearchbarComponent],
   templateUrl: './frame.component.html',
   styleUrls: ['./app.scss']
 })
@@ -20,15 +20,14 @@ export class FrameComponent {
 
   // Reactive menu items
   readonly menuItems = signal([
-    { icon: 'home', label: 'Dashboard', disabled: false, action: () => this.onDashboard() },
-    { icon: 'phone', label: '8675309', disabled: false, action: () => this.onJenny() },
-    { icon: 'assignment', label: 'Action required', disabled: true, action: () => this.onActionRequired() },
-    { icon: 'how_to_reg', label: 'Registration', disabled: true, action: () => this.onRegistration() },
-    { icon: 'assessment', label: 'Report Hub', disabled: true, action: () => this.onReportHub() },
-    { icon: 'search', label: 'Custom Searches', disabled: true, action: () => this.onCustomSearches() },
-    { icon: 'person', label: 'Profile', disabled: true, action: () => this.onProfile() },
-    { icon: 'admin_panel_settings', label: 'Admin', disabled: true, action: () => this.onAdmin() },
-    { icon: 'info', label: 'About this Application', disabled: true, action: () => this.onAbout() }
+    { icon: 'home', label: 'Dashboard', tooltip: 'Go to Dashboard', disabled: false, action: () => this.onDashboard() },
+    { icon: 'assignment', label: 'Action required', tooltip: 'View required actions', disabled: true, action: () => this.onActionRequired() },
+    { icon: 'how_to_reg', label: 'Registration', tooltip: 'Registration info', disabled: true, action: () => this.onRegistration() },
+    { icon: 'assessment', label: 'Report Hub', tooltip: 'Assessment reports', disabled: true, action: () => this.onReportHub() },
+    { icon: 'search', label: 'Custom Searches', tooltip: 'Custom search tools', disabled: true, action: () => this.onCustomSearches() },
+    { icon: 'person', label: 'Profile', tooltip: 'Your profile', disabled: true, action: () => this.onProfile() },
+    { icon: 'admin_panel_settings', label: 'Admin', tooltip: 'Admin tools', disabled: true, action: () => this.onAdmin() },
+    { icon: 'info', label: 'About this Application', tooltip: 'About', disabled: true, action: () => this.onAbout() }
   ]);
 
   // Reactive search query
@@ -55,9 +54,7 @@ export class FrameComponent {
   onDashboard = () => {
     this.router.navigate(['']);
   };
-  onJenny = () => {
-    this.router.navigate(['assessment', '8675309']);
-  };
+
   onProfile = () => {};
   onActionRequired = () => {};
   onRegistration = () => {};
@@ -65,6 +62,7 @@ export class FrameComponent {
   onCustomSearches = () => {};
   onAdmin = () => {};
   onAbout = () => {};
+
 
   onSearch(query: string) {
     this.searchQuery.set(query);
