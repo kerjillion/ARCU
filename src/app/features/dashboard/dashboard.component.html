@@ -2,31 +2,11 @@
   <h2>{{ dashboardTitle() }}</h2>
   <div class="dashboard-widgets">
     <div class="dashboard-widget">
-      <h3>My Assessments</h3>
+      <h3>All Assessments</h3>
       <ul>
-        <li *ngFor="let assessment of myAssessments()">
+        <li *ngFor="let assessment of allAssessments()">
           <a [routerLink]="['/assessment', assessment.id]">
             {{ assessment.title }} (Status: {{ assessment.status }})
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="dashboard-widget">
-      <h3>My Required Actions</h3>
-      <ul>
-        <li *ngFor="let action of myActions()">
-          <a [routerLink]="['/assessment', action.assessmentId]" [queryParams]="{ tab: getTabForAction(action) }">
-            {{ action.description }} (Assessment: {{ action.assessmentTitle }})
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="dashboard-widget">
-      <h3>Waiting On Others</h3>
-      <ul>
-        <li *ngFor="let wait of waitingOnOthers()">
-          <a [routerLink]="['/assessment', wait.assessmentId]" [queryParams]="{ tab: getTabForAction(wait) }">
-            {{ wait.user }} for {{ wait.actionDescription }} (Assessment: {{ wait.assessmentTitle }})
           </a>
         </li>
       </ul>

@@ -82,12 +82,12 @@ throw new Error('Method not implemented.');
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       this.assessmentId.set(id);
-      if (id) {
-        this.overviewDataService.getOverviewData(id).subscribe((data: OverviewData) => {
-          this.assessmentTitle = data.title;
-          // For demo, use select2 as status (adjust as needed)
-          this.assessmentStatus = data.ancillaryInfo.select2 || 'Unknown';
-          this.assessmentState.setAssessment({ id, name: data.title, status: this.assessmentStatus });
+      if (id) {        this.overviewDataService.getOverviewData(id).subscribe((data: OverviewData | null) => {
+          if (data) {
+            this.assessmentTitle = data.title;
+            this.assessmentStatus = data.status || 'Unknown';
+            this.assessmentState.setAssessment({ id, name: data.title, status: this.assessmentStatus });
+          }
         });
       } else {
         this.assessmentState.clear();

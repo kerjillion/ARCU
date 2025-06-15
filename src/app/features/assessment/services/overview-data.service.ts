@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, delay } from 'rxjs';
+import { Observable, of, delay, map } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 export interface OverviewData {
+  id: string;
   title: string;
+  status: string;
   objective: string;
   impactSummary: string;
   targetPopulation: string;
@@ -30,39 +33,36 @@ export interface OverviewData {
   providedIn: 'root'
 })
 export class OverviewDataService {
-  
-  private mockData: OverviewData = {
-    title: 'Digital Health Initiative - Germ Theory is the Future',
-    objective: 'Implement a comprehensive digital health platform to improve patient outcomes and streamline healthcare delivery processes across the organization.',
-    impactSummary: 'Expected to reduce patient wait times by 30%, improve care coordination between departments, and enhance overall patient satisfaction scores.',
-    targetPopulation: 'Primary care patients aged 18-65 with chronic conditions requiring ongoing monitoring and care management.',
-    dates: {
-      date1: new Date('2024-01-15'),
-      date2: new Date('2024-03-30'),
-      date3: new Date('2024-06-15'),
-      date4: new Date('2024-09-01'),
-      date5: new Date('2024-12-15'),
-      date6: new Date('2025-03-30')
-    },    ancillaryInfo: {
-      input1: 'Budget Code: HC-2024-001',
-      select1: 'high-priority',
-      input2: 'Stakeholder: Dr. Sarah Johnson',
-      select2: 'Approved',
-      input3: 'Department: IT Health Services',
-      input4: 'Project Manager: Mike Chen',
-      selectSpan: 'phase-1-implementation',
-      chips: ['Planning Phase', 'Testing & Validation']
-    }
-  };
+  constructor(private http: HttpClient) {}
 
   /**
    * Get overview data for a specific assessment
    * @param assessmentId - The ID of the assessment
    * @returns Observable of OverviewData
    */
-  getOverviewData(assessmentId: string): Observable<OverviewData> {
-    // Simulate API call with delay
-    return of(this.mockData).pipe(delay(500));
+  getOverviewData(assessmentId: string): Observable<OverviewData | null> {
+    return this.http.get<OverviewData[]>('assets/data/assessments.json').pipe(
+      map(list => {
+        // Convert date strings to Date objects
+        const found = list.find(item => item.id === assessmentId);
+        if (found) {
+          const dates = found.dates;
+          return {
+            ...found,
+            dates: {
+              date1: dates.date1 ? new Date(dates.date1) : null,
+              date2: dates.date2 ? new Date(dates.date2) : null,
+              date3: dates.date3 ? new Date(dates.date3) : null,
+              date4: dates.date4 ? new Date(dates.date4) : null,
+              date5: dates.date5 ? new Date(dates.date5) : null,
+              date6: dates.date6 ? new Date(dates.date6) : null,
+            }
+          };
+        }
+        return null;
+      }),
+      delay(500)
+    );
   }
 
   /**
@@ -72,9 +72,8 @@ export class OverviewDataService {
    * @returns Observable of the saved data
    */
   saveOverviewData(assessmentId: string, data: OverviewData): Observable<OverviewData> {
-    // Simulate API call with delay
-    this.mockData = { ...data };
-    return of(this.mockData).pipe(delay(300));
+    // Simulate API call with delay (no actual save in assets)
+    return of(data).pipe(delay(300));
   }
 
   /**
@@ -104,6 +103,7 @@ export class OverviewDataService {
         { value: 'planning', label: 'Planning Phase' },
         { value: 'phase-1-implementation', label: 'Phase 1 Implementation' },
         { value: 'phase-2-implementation', label: 'Phase 2 Implementation' },
+        { value: 'security-assessment', label: 'Security Assessment' },
         { value: 'testing', label: 'Testing & Validation' },
         { value: 'deployment', label: 'Deployment' },
         { value: 'post-deployment', label: 'Post-Deployment Support' }
@@ -119,7 +119,9 @@ export class OverviewDataService {
    */
   createEmptyOverviewData(): OverviewData {
     return {
+      id: '',
       title: '',
+      status: '',
       objective: '',
       impactSummary: '',
       targetPopulation: '',

@@ -10,7 +10,7 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-frame',
   standalone: true,
-  imports: [RouterOutlet, FloatingMenuComponent, SearchbarComponent, NgIf],
+  imports: [RouterOutlet, FloatingMenuComponent, SearchbarComponent],
   templateUrl: './frame.component.html',
   styleUrls: ['./app.scss']
 })

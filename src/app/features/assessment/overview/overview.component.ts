@@ -12,6 +12,7 @@ import { OverviewDataService, OverviewData } from '../services/overview-data.ser
 import { OverviewIdentityComponent } from './overview-identity/overview-identity.component';
 import { OverviewVitalsComponent } from './overview-vitals/overview-vitals.component';
 import { OverviewDatesComponent } from './overview-dates/overview-dates.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-assessment-overview',
@@ -33,6 +34,7 @@ import { OverviewDatesComponent } from './overview-dates/overview-dates.componen
 })
 export class AssessmentOverviewComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
+  private assessmentId: string = ''; // Store the assessment ID
 
   form = new FormGroup({
     title: new FormControl(''),
@@ -67,10 +69,17 @@ export class AssessmentOverviewComponent implements OnInit, OnDestroy {
     { label: 'Project Complete', name: 'date6' },
   ];
 
-  constructor(private overviewDataService: OverviewDataService) {}
+  constructor(private overviewDataService: OverviewDataService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.loadOverviewData();
+    // Subscribe to route param changes for reactive updates
+    this.route.paramMap
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(params => {
+        const assessmentId = params.get('id') || '8675309'; // fallback default
+        this.assessmentId = assessmentId;
+        this.loadOverviewData(assessmentId);
+      });
     this.loadDropdownOptions();
   }
 
@@ -78,15 +87,15 @@ export class AssessmentOverviewComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
-
-  private loadOverviewData(): void {
+  private loadOverviewData(assessmentId: string): void {
     this.isLoading = true;
-    const assessmentId = 'mock-assessment-123';
     this.overviewDataService.getOverviewData(assessmentId)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
-        next: (data: OverviewData) => {
-          this.populateForm(data);
+        next: (data: OverviewData | null) => {
+          if (data) {
+            this.populateForm(data);
+          }
           this.isLoading = false;
         },
         error: (error: any) => {
@@ -136,6 +145,8 @@ export class AssessmentOverviewComponent implements OnInit, OnDestroy {
     if (this.form.valid) {
       const formData = this.form.value;
       const overviewData: OverviewData = {
+        id: this.assessmentId || '',
+        status: 'Draft', // Default status for new saves
         title: formData.title || '',
         objective: formData.objective || '',
         impactSummary: formData.impactSummary || '',

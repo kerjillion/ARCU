@@ -1,0 +1,262 @@
+[
+  {
+    "id": "8675309",
+    "title": "Digital Health Initiative - Germ Theory is the Future",
+    "status": "In Progress",
+    "objective": "Implement a comprehensive digital health platform to improve patient outcomes and streamline healthcare delivery processes across the organization.",
+    "impactSummary": "Expected to reduce patient wait times by 30%, improve care coordination between departments, and enhance overall patient satisfaction scores.",
+    "targetPopulation": "Primary care patients aged 18-65 with chronic conditions requiring ongoing monitoring and care management.",
+    "dates": {
+      "date1": "2024-01-15T00:00:00.000Z",
+      "date2": "2024-03-30T00:00:00.000Z",
+      "date3": "2024-06-15T00:00:00.000Z",
+      "date4": "2024-09-01T00:00:00.000Z",
+      "date5": "2024-12-15T00:00:00.000Z",
+      "date6": "2025-03-30T00:00:00.000Z"
+    },
+    "ancillaryInfo": {
+      "input1": "Budget Code: HC-2024-001",
+      "select1": "high-priority",
+      "input2": "Stakeholder: Dr. Sarah Johnson",
+      "select2": "Approved",
+      "input3": "Department: IT Health Services",
+      "input4": "Project Manager: Mike Chen",
+      "selectSpan": "phase-1-implementation",
+      "chips": ["Planning Phase", "Testing & Validation"]
+    }
+  },
+  {
+    "id": "12345",
+    "title": "Network Security Assessment",
+    "status": "Under Review",
+    "objective": "Conduct comprehensive security audit to identify vulnerabilities and implement security measures.",
+    "impactSummary": "Will improve security posture by 40% and reduce potential breach risks.",
+    "targetPopulation": "All network users and critical system administrators.",
+    "dates": {
+      "date1": "2024-02-01T00:00:00.000Z",
+      "date2": "2024-04-15T00:00:00.000Z",
+      "date3": "2024-07-01T00:00:00.000Z",
+      "date4": "2024-10-01T00:00:00.000Z",
+      "date5": "2025-01-15T00:00:00.000Z",
+      "date6": "2025-04-30T00:00:00.000Z"
+    },
+    "ancillaryInfo": {
+      "input1": "Budget Code: SEC-2024-002",
+      "select1": "critical-priority",
+      "input2": "Stakeholder: CISO Team",
+      "select2": "Under Review",
+      "input3": "Department: IT Security",
+      "input4": "Project Manager: Alex Kim",
+      "selectSpan": "security-assessment",
+      "chips": ["Security Audit", "Risk Analysis"]
+    }
+  },
+  {
+    "id": "202501",
+    "title": "AI-Driven Patient Scheduling",
+    "status": "Draft",
+    "objective": "Develop and pilot an AI-based scheduling tool to optimize patient appointment allocation and reduce no-shows.",
+    "impactSummary": "Anticipated to increase appointment utilization by 20% and improve patient satisfaction with flexible scheduling.",
+    "targetPopulation": "Outpatient clinics and administrative staff.",
+    "dates": {
+      "date1": "2025-01-10T00:00:00.000Z",
+      "date2": "2025-02-15T00:00:00.000Z",
+      "date3": "2025-04-01T00:00:00.000Z",
+      "date4": "2025-06-01T00:00:00.000Z",
+      "date5": "2025-08-01T00:00:00.000Z",
+      "date6": "2025-10-01T00:00:00.000Z"
+    },
+    "ancillaryInfo": {
+      "input1": "Budget Code: AI-2025-003",
+      "select1": "medium-priority",
+      "input2": "Stakeholder: Scheduling Team",
+      "select2": "Draft",
+      "input3": "Department: Operations",
+      "input4": "Project Manager: Priya Patel",
+      "selectSpan": "planning",
+      "chips": ["AI Pilot", "Scheduling"]
+    }
+  },
+  {
+    "id": "202502",
+    "title": "Telemedicine Expansion",
+    "status": "Approved",
+    "objective": "Expand telemedicine services to rural areas and integrate with existing EHR systems.",
+    "impactSummary": "Will provide access to care for 5,000+ new patients and reduce travel time for rural residents.",
+    "targetPopulation": "Rural patients and primary care providers.",
+    "dates": {
+      "date1": "2025-03-01T00:00:00.000Z",
+      "date2": "2025-04-10T00:00:00.000Z",
+      "date3": "2025-06-20T00:00:00.000Z",
+      "date4": "2025-09-01T00:00:00.000Z",
+      "date5": "2025-11-15T00:00:00.000Z",
+      "date6": "2026-01-30T00:00:00.000Z"
+    },
+    "ancillaryInfo": {
+      "input1": "Budget Code: TM-2025-004",
+      "select1": "high-priority",
+      "input2": "Stakeholder: Telehealth Committee",
+      "select2": "Approved",
+      "input3": "Department: Telemedicine",
+      "input4": "Project Manager: Juan Martinez",
+      "selectSpan": "deployment",
+      "chips": ["Telehealth", "EHR Integration"]
+    }
+  },
+  {
+    "id": "202503",
+    "title": "Green Hospital Initiative",
+    "status": "Completed",
+    "objective": "Implement energy-saving measures and reduce hospital carbon footprint by 25% by 2026.",
+    "impactSummary": "Expected to save $500,000 annually in energy costs and improve community environmental health.",
+    "targetPopulation": "All hospital staff and patients.",
+    "dates": {
+      "date1": "2024-05-01T00:00:00.000Z",
+      "date2": "2024-07-01T00:00:00.000Z",
+      "date3": "2024-10-01T00:00:00.000Z",
+      "date4": "2025-01-01T00:00:00.000Z",
+      "date5": "2025-04-01T00:00:00.000Z",
+      "date6": "2026-01-01T00:00:00.000Z"
+    },
+    "ancillaryInfo": {
+      "input1": "Budget Code: GRN-2024-005",
+      "select1": "low-priority",
+      "input2": "Stakeholder: Facilities Team",
+      "select2": "Completed",
+      "input3": "Department: Facilities",
+      "input4": "Project Manager: Emily Nguyen",
+      "selectSpan": "post-deployment",
+      "chips": ["Sustainability", "Energy Savings"]
+    }
+  },
+  {
+    "id": "202504",
+    "title": "Mobile Health App Rollout",
+    "status": "In Progress",
+    "objective": "Deploy a mobile app for patients to access health records, schedule appointments, and communicate with providers.",
+    "impactSummary": "Expected to increase patient engagement and reduce administrative workload by 15%.",
+    "targetPopulation": "All registered patients with smartphones.",
+    "dates": {
+      "date1": "2025-02-01T00:00:00.000Z",
+      "date2": "2025-03-15T00:00:00.000Z",
+      "date3": "2025-05-01T00:00:00.000Z",
+      "date4": "2025-07-01T00:00:00.000Z",
+      "date5": "2025-09-01T00:00:00.000Z",
+      "date6": "2025-12-01T00:00:00.000Z"
+    },
+    "ancillaryInfo": {
+      "input1": "Budget Code: MOB-2025-006",
+      "select1": "high-priority",
+      "input2": "Stakeholder: Patient Services",
+      "select2": "In Progress",
+      "input3": "Department: Digital Health",
+      "input4": "Project Manager: Lisa Brown",
+      "selectSpan": "phase-2-implementation",
+      "chips": ["Mobile App", "Patient Portal"]
+    }
+  },
+  {
+    "id": "202505",
+    "title": "Hospital Staff Wellness Program",
+    "status": "Draft",
+    "objective": "Launch a wellness program to improve staff health, reduce burnout, and increase retention.",
+    "impactSummary": "Aims to decrease staff turnover by 10% and improve overall job satisfaction.",
+    "targetPopulation": "All hospital staff and contractors.",
+    "dates": {
+      "date1": "2025-04-01T00:00:00.000Z",
+      "date2": "2025-05-15T00:00:00.000Z",
+      "date3": "2025-07-01T00:00:00.000Z",
+      "date4": "2025-09-01T00:00:00.000Z",
+      "date5": "2025-11-01T00:00:00.000Z",
+      "date6": "2026-01-01T00:00:00.000Z"
+    },
+    "ancillaryInfo": {
+      "input1": "Budget Code: WELL-2025-007",
+      "select1": "medium-priority",
+      "input2": "Stakeholder: HR Department",
+      "select2": "Draft",
+      "input3": "Department: Human Resources",
+      "input4": "Project Manager: Omar Singh",
+      "selectSpan": "planning",
+      "chips": ["Wellness", "Staff Retention"]
+    }
+  },
+  {
+    "id": "202506",
+    "title": "Pediatric Care Expansion",
+    "status": "Approved",
+    "objective": "Expand pediatric services to include specialty clinics and telehealth for children with chronic illnesses.",
+    "impactSummary": "Will provide specialized care to 2,000+ children and reduce travel for families by 30%.",
+    "targetPopulation": "Children with chronic illnesses and their families.",
+    "dates": {
+      "date1": "2025-03-10T00:00:00.000Z",
+      "date2": "2025-05-01T00:00:00.000Z",
+      "date3": "2025-07-15T00:00:00.000Z",
+      "date4": "2025-10-01T00:00:00.000Z",
+      "date5": "2026-01-01T00:00:00.000Z",
+      "date6": "2026-04-01T00:00:00.000Z"
+    },
+    "ancillaryInfo": {
+      "input1": "Budget Code: PED-2025-008",
+      "select1": "high-priority",
+      "input2": "Stakeholder: Pediatrics Department",
+      "select2": "Approved",
+      "input3": "Department: Pediatrics",
+      "input4": "Project Manager: Hannah Lee",
+      "selectSpan": "deployment",
+      "chips": ["Pediatrics", "Specialty Clinic"]
+    }
+  },
+  {
+    "id": "202507",
+    "title": "Hospital Cybersecurity Upgrade",
+    "status": "Under Review",
+    "objective": "Upgrade cybersecurity infrastructure to meet new federal standards and protect patient data.",
+    "impactSummary": "Expected to reduce risk of data breaches and improve compliance with HIPAA regulations.",
+    "targetPopulation": "IT staff and all users of hospital information systems.",
+    "dates": {
+      "date1": "2025-06-01T00:00:00.000Z",
+      "date2": "2025-07-15T00:00:00.000Z",
+      "date3": "2025-09-01T00:00:00.000Z",
+      "date4": "2025-11-01T00:00:00.000Z",
+      "date5": "2026-01-15T00:00:00.000Z",
+      "date6": "2026-03-01T00:00:00.000Z"
+    },
+    "ancillaryInfo": {
+      "input1": "Budget Code: CYB-2025-009",
+      "select1": "critical-priority",
+      "input2": "Stakeholder: IT Security",
+      "select2": "Under Review",
+      "input3": "Department: IT",
+      "input4": "Project Manager: David Kim",
+      "selectSpan": "security-assessment",
+      "chips": ["Cybersecurity", "Compliance"]
+    }
+  },
+  {
+    "id": "202508",
+    "title": "Outpatient Pharmacy Automation",
+    "status": "Completed",
+    "objective": "Automate outpatient pharmacy operations to reduce wait times and medication errors.",
+    "impactSummary": "Reduced prescription wait times by 40% and improved medication safety.",
+    "targetPopulation": "All outpatient pharmacy patients and staff.",
+    "dates": {
+      "date1": "2024-11-01T00:00:00.000Z",
+      "date2": "2025-01-01T00:00:00.000Z",
+      "date3": "2025-03-01T00:00:00.000Z",
+      "date4": "2025-05-01T00:00:00.000Z",
+      "date5": "2025-07-01T00:00:00.000Z",
+      "date6": "2025-09-01T00:00:00.000Z"
+    },
+    "ancillaryInfo": {
+      "input1": "Budget Code: PHM-2024-010",
+      "select1": "medium-priority",
+      "input2": "Stakeholder: Pharmacy Department",
+      "select2": "Completed",
+      "input3": "Department: Pharmacy",
+      "input4": "Project Manager: Rachel Adams",
+      "selectSpan": "post-deployment",
+      "chips": ["Pharmacy", "Automation"]
+    }
+  }
+]
