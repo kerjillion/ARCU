@@ -1,12 +1,11 @@
 <app-button-ribbon [buttons]="ribbonButtons" (buttonClick)="onRibbonButtonClick($event)"></app-button-ribbon>
 <div class="summary-bar">
-  <!-- Assessment info on the left -->
-  <span style="margin-right:auto; display: flex; flex-direction: column; justify-content: center; gap: 0.1rem;">
+  <!-- Assessment info on the left -->  <span style="margin-right:auto; display: flex; flex-direction: column; justify-content: center; gap: 0.1rem;">
     <span style="display: flex; align-items: center; gap: 1.5rem;">
       <span class="assessment-number"><span style="font-weight: normal;">{{ displayId()}}</span></span>
-      <span class="assessment-title"><span style="font-weight: normal;">{{ assessmentTitle }}</span></span>
+      <span class="assessment-title"><span style="font-weight: normal;">{{ assessmentTitle() }}</span></span>
     </span>
-    <span><strong>Status:</strong> <span style="font-weight: normal;"> {{ assessmentStatus }}</span></span>
+    <span><strong>Status:</strong> <span style="font-weight: normal;"> {{ assessmentStatus() }}</span></span>
   </span>
   <!-- Actions on the right -->
   <span class="summary-bar-actions">
@@ -29,7 +28,7 @@
       <ng-container *ngIf="selectedTabIndex() === idx">
         <ng-container [ngSwitch]="tab.title">
           <app-assessment-overview *ngSwitchCase="'Overview'"></app-assessment-overview>
-          <app-assessment-deployment *ngSwitchCase="'Deployments'" [assessmentId]="assessmentId() ? +assessmentId()! : 0" [assessmentTitle]="assessmentTitle"></app-assessment-deployment>
+          <app-assessment-deployment *ngSwitchCase="'Deployments'" [assessmentId]="assessmentId() ? +assessmentId()! : 0" [assessmentTitle]="assessmentTitle()"></app-assessment-deployment>
           <app-assessment-relationships *ngSwitchCase="'Relationships'"></app-assessment-relationships>
           <app-assessment-scope *ngSwitchCase="'Scope'"></app-assessment-scope>
           <app-assessment-policy *ngSwitchCase="'Policies'"></app-assessment-policy>

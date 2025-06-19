@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, delay, map } from 'rxjs';
+import { Observable, of, delay, map, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 export interface OverviewData {
@@ -39,9 +39,11 @@ export class OverviewDataService {
    * Get overview data for a specific assessment
    * @param assessmentId - The ID of the assessment
    * @returns Observable of OverviewData
-   */
-  getOverviewData(assessmentId: string): Observable<OverviewData | null> {
-    return this.http.get<OverviewData[]>('assets/data/assessments.json').pipe(
+   */  getOverviewData(assessmentId: string): Observable<OverviewData | null> {
+    // Simulate a slower API by delaying BEFORE the HTTP request
+    return of(null).pipe(
+      delay(500), // This creates the delay that the interceptor will track
+      switchMap(() => this.http.get<OverviewData[]>('assets/data/assessments.json')),
       map(list => {
         // Convert date strings to Date objects
         const found = list.find(item => item.id === assessmentId);
@@ -58,10 +60,8 @@ export class OverviewDataService {
               date6: dates.date6 ? new Date(dates.date6) : null,
             }
           };
-        }
-        return null;
-      }),
-      delay(500)
+        }        return null;
+      })
     );
   }
 
@@ -71,9 +71,8 @@ export class OverviewDataService {
    * @param data - The overview data to save
    * @returns Observable of the saved data
    */
-  saveOverviewData(assessmentId: string, data: OverviewData): Observable<OverviewData> {
-    // Simulate API call with delay (no actual save in assets)
-    return of(data).pipe(delay(300));
+  saveOverviewData(assessmentId: string, data: OverviewData): Observable<OverviewData> {    // Simulate API call with delay (no actual save in assets)
+    return of(data).pipe(delay(800)); // Increased delay
   }
 
   /**

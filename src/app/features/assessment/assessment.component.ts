@@ -52,7 +52,8 @@ interface AssessmentTab {
 })
 export class AssessmentComponent {
 openAttachementsPanel() {
-throw new Error('Method not implemented.');
+  // TODO: Implement attachments panel
+  console.log('Opening attachments panel');
 }
   readonly assessmentId = signal<string | null>(null);
 
@@ -91,9 +92,9 @@ throw new Error('Method not implemented.');
       this.assessmentId.set(id);
       if (id) {        this.overviewDataService.getOverviewData(id).subscribe((data: OverviewData | null) => {
           if (data) {
-            this.assessmentTitle = data.title;
-            this.assessmentStatus = data.status || 'Unknown';
-            this.assessmentState.setAssessment({ id, name: data.title, status: this.assessmentStatus });
+            this.assessmentTitle.set(data.title);
+            this.assessmentStatus.set(data.status || 'Unknown');
+            this.assessmentState.setAssessment({ id, name: data.title, status: this.assessmentStatus() });
           }
         });
       } else {
@@ -111,7 +112,6 @@ throw new Error('Method not implemented.');
       }
     });
   }
-
   onTabChange(index: number) {
     const tab = this.visibleTabs()[index];
     if (tab) {
@@ -161,13 +161,12 @@ throw new Error('Method not implemented.');
       this.isPanelOpen.set(true);
     }
   }
-
   closePanel() {
     this.isPanelOpen.set(false);
   }
 
-  assessmentTitle = 'Assessment Title Here'; // Replace with actual title
-  assessmentStatus = 'In Progress'; // Replace with actual status
+  assessmentTitle = signal('Assessment Title Here'); // Replace with actual title
+  assessmentStatus = signal('In Progress'); // Replace with actual status
 
   trackByTitle(index: number, tab: { title: string }) {
     return tab.title;

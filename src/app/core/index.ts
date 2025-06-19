@@ -2,6 +2,11 @@ export * from './auth.service';
 export * from './api.service';
 export * from './state.service';
 export * from './assessment-state.service';
+export * from './global-error-handler';
+export * from './loading.interceptor';
+export * from './loading.service';
+export * from './logging.service';
+export * from './error-monitoring.service';
 
 /*
 core/index.ts Documentation
