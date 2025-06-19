@@ -1,3 +1,9 @@
+export const EXPRESSION_CHANGED_AFTER_CHECKED_FIX = {
+  fixed: true,
+  date: '2025-06-19',
+  solution: 'Converted properties to Angular signals',
+  errorMonitoring: 'Enhanced with NG0100 error recognition'
+};
 /**
  * ExpressionChangedAfterItHasBeenChecked Fix Documentation
  * =======================================================
@@ -74,9 +80,3 @@ export class AssessmentComponent {
 // BEFORE: {{ assessmentTitle }}
 // AFTER:  {{ assessmentTitle() }}
 
-export const EXPRESSION_CHANGED_AFTER_CHECKED_FIX = {
-  fixed: true,
-  date: '2025-06-19',
-  solution: 'Converted properties to Angular signals',
-  errorMonitoring: 'Enhanced with NG0100 error recognition'
-};

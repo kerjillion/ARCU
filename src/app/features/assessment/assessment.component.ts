@@ -183,6 +183,9 @@ openAttachementsPanel() {
   ];
 
   onRibbonButtonClick(btn: RibbonButton) {
+    if (btn.name === 'Send') {
+      throw new Error('Cannot send data to Camazotz');
+    }
     // Handle button click here, e.g., context-aware logic
     console.log('Ribbon button clicked:', btn);
   }
