@@ -5,7 +5,6 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { FlyMenuComponent } from './shared/fly-menu/fly-menu.component';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 import { AssessmentStateService } from './core';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-frame',
