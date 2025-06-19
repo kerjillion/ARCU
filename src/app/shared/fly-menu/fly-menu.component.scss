@@ -7,8 +7,8 @@
     background: none;
     color: #1976d2;
     border-radius: 50%;
-    width: 47.6px;
-    height: 47.6px;
+    width: 44px;
+    height: 44px;
     font-size: 1.7rem;
     display: flex;
     align-items: center;
@@ -42,8 +42,9 @@
     border-radius: 2rem;
     box-shadow: 0 2px 12px rgba(33, 150, 243, 0.10);
     padding: 0.5rem 0.75rem;
-    min-width: 48px;
-    min-height: 48px;
+    min-width: 44px;
+    min-height: 44px;
+    margin: 0px 5px;
 
     &.menu-open {
       opacity: 1;
