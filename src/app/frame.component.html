@@ -13,6 +13,7 @@
   <app-searchbar (search)="onSearch($event)"></app-searchbar>
 </header>
 
+<app-loading-spinner [loading]="loadingService.loading$()"></app-loading-spinner>
 <main class="app-main">
   <router-outlet></router-outlet>
 </main>

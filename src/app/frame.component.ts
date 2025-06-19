@@ -5,11 +5,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { FlyMenuComponent } from './shared/fly-menu/fly-menu.component';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 import { AssessmentStateService } from './core';
+import { LoadingService } from './core/loading.service';
+import { LoadingSpinnerComponent } from './shared/loading-spinner.component';
 
 @Component({
   selector: 'app-frame',
   standalone: true,
-  imports: [RouterOutlet, FlyMenuComponent, SearchbarComponent],
+  imports: [RouterOutlet, FlyMenuComponent, SearchbarComponent, LoadingSpinnerComponent],
   templateUrl: './frame.component.html',
   styleUrls: ['./app.scss']
 })
@@ -32,7 +34,12 @@ export class FrameComponent {
   // Reactive search query
   readonly searchQuery = signal('');
 
-  constructor(private router: Router, private route: ActivatedRoute, public assessmentState: AssessmentStateService) {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    public assessmentState: AssessmentStateService,
+    public loadingService: LoadingService
+  ) {
     const title$ = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(() => {

@@ -24,3 +24,18 @@ export class AssessmentStateService {
     this.status.set('');
   }
 }
+
+/**
+ * AssessmentStateService
+ *
+ * Manages the state of the currently selected assessment using Angular signals.
+ * - `id`, `name`, `status`: Signals holding the current assessment's ID, name, and status.
+ * - `setAssessment(summary)`: Updates all signals with the provided assessment summary.
+ * - `clear()`: Resets all signals to their default (empty) values.
+ *
+ * This service provides a reactive, injectable store for assessment context, allowing components to access and update assessment state throughout the app.
+ *
+ * Usage example:
+ *   this.assessmentState.setAssessment({ id, name, status });
+ *   this.assessmentState.clear();
+ */
