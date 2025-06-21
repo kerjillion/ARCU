@@ -14,7 +14,7 @@ import { AssessmentRiskListComponent } from './risk-list/risk-list.component';
 import { AssessmentNotesComponent } from './notes/notes.component';
 import { AssessmentPovComponent } from './pov/pov.component';
 import { AssessmentStateService } from '../../core';
-import { OverviewDataService, OverviewData } from './services/overview-data.service';
+import { OverviewDataService, OverviewData } from '../../core/overview-data.service';
 import { AssessmentStakeholdersComponent } from './stakeholders/stakeholders.component';
 import { CommonModule } from '@angular/common';
 import { ButtonRibbonComponent, RibbonButton } from "../../shared/button-ribbon/button-ribbon.component";

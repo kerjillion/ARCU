@@ -1,6 +1,6 @@
 import { render } from '@testing-library/angular';
 import { AssessmentOverviewComponent } from './overview.component';
-import { OverviewDataService } from '../services/overview-data.service';
+import { OverviewDataService } from '../../../core/overview-data.service';
 import { of } from 'rxjs';
 
 describe('AssessmentOverviewComponent', () => {
